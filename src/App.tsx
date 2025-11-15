@@ -1,3 +1,3 @@
-const App = () => <></>
+const App = () => <></>;
 
-export default App
+export default App;
