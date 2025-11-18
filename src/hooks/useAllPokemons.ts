@@ -22,7 +22,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchPokemon = async (pokemonId: number): Promise<Pokemon> => {
-    const errorMessage = `An error occurred while fetching Pokemon with id ${String(pokemonId)} from PokeApi`;
+    const errorMessage = `An error occurred while fetching Pokemon with id ${String(pokemonId)} from PokeAPI`;
 
     try {
       const response = await fetch(
