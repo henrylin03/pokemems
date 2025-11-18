@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
-import { type PokeAPI } from "pokeapi-types";
+import * as z from "zod";
 
 interface Pokemon {
   id: number;
   name: string;
   imageUrl: string;
 }
+
+const PokemonApiResponseSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  sprites: z.object({
+    front_default: z.string(),
+  }),
+});
 
 // ? move into a data provider (context)? look at notion notes: https://www.notion.so/fetching-data-in-react-128cf1e7a6a680c386fddc6b5124274a?source=copy_link#128cf1e7a6a680fc82a1ef3778c610cb
 export const useAllPokemons = (pokemonIds: number[]) => {
@@ -24,7 +32,9 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       if (response.status >= 400) throw new Error(errorMessage);
 
-      const data = (await response.json()) as PokeAPI.Pokemon;
+      const json: unknown = await response.json();
+      const data = PokemonApiResponseSchema.parse(json);
+
       const pokemonData: Pokemon = {
         id: data.id,
         name: data.name,
