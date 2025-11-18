@@ -68,7 +68,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
       }
     };
 
-    fetchAllPokemons(pokemonIds);
+    void fetchAllPokemons(pokemonIds);
 
     return () => {
       shouldIgnore = true;
