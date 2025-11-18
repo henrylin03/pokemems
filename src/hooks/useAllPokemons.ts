@@ -43,7 +43,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       return pokemonData;
     } catch (error) {
-      throw Error(error instanceof Error ? error.message : errorMessage);
+      throw Error(Error.isError(error) ? error.message : errorMessage);
     }
   };
 
@@ -58,7 +58,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
         const fetchedPokemons = await Promise.all(allPromises);
         if (!shouldIgnore) setPokemons(fetchedPokemons);
       } catch (error) {
-        if (error instanceof Error)
+        if (Error.isError(error))
           setError(
             error.message ||
               "An error occurred while fetching Pokemon data from PokeAPI",
