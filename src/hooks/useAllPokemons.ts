@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
+import * as z from "zod";
 
-interface PokemonData {
+interface Pokemon {
   id: number;
   name: string;
   imageUrl: string;
 }
 
+const PokemonApiResponseSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  sprites: z.object({
+    front_default: z.string(),
+  }),
+});
+
 // ? move into a data provider (context)? look at notion notes: https://www.notion.so/fetching-data-in-react-128cf1e7a6a680c386fddc6b5124274a?source=copy_link#128cf1e7a6a680fc82a1ef3778c610cb
 export const useAllPokemons = (pokemonIds: number[]) => {
-  const [pokemons, setPokemons] = useState<PokemonData[]>([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchPokemon = async (pokemonId: number) => {
+  const fetchPokemon = async (pokemonId: number): Promise<Pokemon> => {
     const errorMessage = `An error occurred while fetching Pokemon with id ${String(pokemonId)} from PokeApi`;
 
     try {
@@ -23,8 +32,10 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       if (response.status >= 400) throw new Error(errorMessage);
 
-      const data = await response.json();
-      const pokemonData: PokemonData = {
+      const json: unknown = await response.json();
+      const data = PokemonApiResponseSchema.parse(json);
+
+      const pokemonData: Pokemon = {
         id: data.id,
         name: data.name,
         imageUrl: data.sprites.front_default,
@@ -32,7 +43,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       return pokemonData;
     } catch (error) {
-      if (error instanceof Error) setError(error.message || errorMessage);
+      throw Error(error instanceof Error ? error.message : errorMessage);
     }
   };
 
@@ -57,7 +68,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
       }
     };
 
-    fetchAllPokemons(pokemonIds);
+    void fetchAllPokemons(pokemonIds);
 
     return () => {
       shouldIgnore = true;
