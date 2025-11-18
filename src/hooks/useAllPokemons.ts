@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { type PokeAPI } from "pokeapi-types";
 
 interface Pokemon {
   id: number;
@@ -12,7 +13,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchPokemon = async (pokemonId: number) => {
+  const fetchPokemon = async (pokemonId: number): Promise<Pokemon> => {
     const errorMessage = `An error occurred while fetching Pokemon with id ${String(pokemonId)} from PokeApi`;
 
     try {
@@ -23,7 +24,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       if (response.status >= 400) throw new Error(errorMessage);
 
-      const data = await response.json();
+      const data = (await response.json()) as PokeAPI.Pokemon;
       const pokemonData: Pokemon = {
         id: data.id,
         name: data.name,
@@ -32,7 +33,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
 
       return pokemonData;
     } catch (error) {
-      if (error instanceof Error) setError(error.message || errorMessage);
+      throw Error(error instanceof Error ? error.message : errorMessage);
     }
   };
 
