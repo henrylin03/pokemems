@@ -6,6 +6,7 @@ interface PokemonData {
   imageUrl: string;
 }
 
+// ? move into a data provider (context)? look at notion notes: https://www.notion.so/fetching-data-in-react-128cf1e7a6a680c386fddc6b5124274a?source=copy_link#128cf1e7a6a680fc82a1ef3778c610cb
 export const useAllPokemons = (pokemonIds: number[]) => {
   const [pokemons, setPokemons] = useState<PokemonData[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -36,14 +37,15 @@ export const useAllPokemons = (pokemonIds: number[]) => {
   };
 
   useEffect(() => {
-    // todo: might need to fetch data like the docs to clean up effect: https://react.dev/learn/synchronizing-with-effects#fetching-data
+    let shouldIgnore = false;
+
     const fetchAllPokemons = async (pokemonIds: number[]) => {
       try {
         const allPromises = pokemonIds.map((pokemonId) =>
           fetchPokemon(pokemonId),
         );
         const fetchedPokemons = await Promise.all(allPromises);
-        setPokemons(fetchedPokemons);
+        if (!shouldIgnore) setPokemons(fetchedPokemons);
       } catch (error) {
         if (error instanceof Error)
           setError(
@@ -56,6 +58,10 @@ export const useAllPokemons = (pokemonIds: number[]) => {
     };
 
     fetchAllPokemons(pokemonIds);
+
+    return () => {
+      shouldIgnore = true;
+    };
   }, [pokemonIds]);
 
   return { pokemons, error, isLoading };
