@@ -31,6 +31,9 @@ export const useAllPokemons = () => {
       })
       .catch((error: unknown) => {
         if (error instanceof Error) setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
