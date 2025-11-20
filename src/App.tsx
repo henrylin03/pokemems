@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import { useAllPokemons } from "./hooks/useAllPokemons";
 
 const App = () => {
@@ -6,7 +7,11 @@ const App = () => {
 
   console.log("pokemons:", pokemons);
 
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default App;
