@@ -1,4 +1,5 @@
 import { useAllPokemons } from "./hooks/useAllPokemons";
+import "./styles/reset.css";
 
 const App = () => {
   const POKEMON_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 69];
