@@ -13,3 +13,12 @@
   font-weight: normal;
   color: var(--yellow);
 }
+
+.heading {
+  line-height: 0;
+  font-size: xx-large;
+}
+
+.subtext {
+  font-size: medium;
+}
