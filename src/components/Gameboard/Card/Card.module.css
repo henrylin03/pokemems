@@ -1,11 +1,19 @@
 .card {
-  width: 100%;
-  height: 100%;
   background-color: var(--lilac);
   border-radius: 0.5rem;
+}
+
+.pokemonImageWrapper {
+  width: 75%;
+}
+
+.pokemonImage {
+  width: 100%;
 }
 
 .pokemonName {
   font-family: var(--game-font);
   text-transform: uppercase;
+  font-size: medium;
+  color: white;
 }
