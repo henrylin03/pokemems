@@ -1,10 +1,12 @@
 .card {
   background-color: var(--lilac);
   border-radius: 0.5rem;
+  padding: 0.2rem;
 }
 
 .pokemonImageWrapper {
   width: 75%;
+  background-color: white;
 }
 
 .pokemonImage {
