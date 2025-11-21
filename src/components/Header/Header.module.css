@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  height: auto;
 }
 
 .left {
-  flex: 1;
+  transform: translateY(15%);
 }
 
 .heading,
@@ -16,7 +17,6 @@
 
 .heading {
   line-height: 0;
-  font-size: xx-large;
 }
 
 .subtext {
