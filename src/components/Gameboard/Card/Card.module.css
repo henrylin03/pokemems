@@ -1,12 +1,14 @@
 .card {
   background-color: var(--lilac);
   border-radius: 0.5rem;
-  padding: 0.2rem;
+  position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .pokemonImageWrapper {
-  width: 75%;
-  background-color: white;
+  width: 80%;
+  height: 100%;
 }
 
 .pokemonImage {
@@ -18,4 +20,7 @@
   text-transform: uppercase;
   font-size: medium;
   color: white;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
