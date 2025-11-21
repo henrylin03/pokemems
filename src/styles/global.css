@@ -13,6 +13,16 @@
   font-family: "DM Sans", Arial, Helvetica, sans-serif, system-ui;
 }
 
+body {
+  height: 100dvh;
+  background: #3d308b;
+  background: linear-gradient(
+    160deg,
+    rgba(61, 48, 139, 1) 0%,
+    rgba(51, 0, 102, 1) 100%
+  );
+}
+
 h1 {
   font-family: var(--game-font);
 }
