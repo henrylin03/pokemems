@@ -1,5 +1,6 @@
 import { useAllPokemons } from "./hooks/useAllPokemons";
 import Header from "./components/Header";
+import Gameboard from "./components/Gameboard";
 import "./styles/reset.css";
 import "./styles/global.css";
 
@@ -12,6 +13,9 @@ const App = () => {
   return (
     <>
       <Header />
+      <main>
+        <Gameboard />
+      </main>
     </>
   );
 };
