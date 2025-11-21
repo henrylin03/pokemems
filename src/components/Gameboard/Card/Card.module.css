@@ -1,0 +1,31 @@
+.card {
+  background-color: var(--lilac);
+  border-radius: 0.5rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.pokemonImageWrapper {
+  height: 90%;
+  width: 75%;
+  display: grid;
+  place-items: end;
+}
+
+.pokemonImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pokemonName {
+  font-family: var(--game-font);
+  text-transform: uppercase;
+  font-size: medium;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}

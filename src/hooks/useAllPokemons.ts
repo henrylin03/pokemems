@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import * as z from "zod";
-
-interface Pokemon {
-  id: number;
-  name: string;
-  imageUrl: string;
-}
+import type { Pokemon } from "../App";
 
 const PokemonApiResponseSchema = z.object({
   id: z.number(),

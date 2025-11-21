@@ -1,0 +1,22 @@
+.scores {
+  list-style: none;
+}
+
+.scoreItem {
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.label,
+.score {
+  font-family: var(--game-font);
+  color: var(--yellow);
+  font-size: medium;
+  line-height: 0;
+}
+
+.score {
+  justify-self: end;
+}

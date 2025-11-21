@@ -25,13 +25,7 @@
 
   h1,
   h2 {
-    font-weight: 900;
     letter-spacing: -0.02rem;
-  }
-  h1,
-  h2,
-  h3 {
-    line-height: 1.1;
   }
   h1,
   h2,
@@ -129,6 +123,7 @@
     background: CanvasText;
     color: Canvas;
     border: 1px solid transparent;
+    cursor: pointer;
   }
   textarea {
     field-sizing: content;
