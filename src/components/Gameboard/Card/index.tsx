@@ -7,8 +7,11 @@ const Card = ({ id, name, imageUrl }: Pokemon) => {
   };
 
   return (
-    <button aria-label={name} onClick={handleClick}>
-      {name}
+    <button onClick={handleClick} className={styles.card} aria-label={name}>
+      <figure className={styles.pokemonImageWrapper}>
+        <img src={imageUrl} alt={name} className={styles.pokemonImage} />
+      </figure>
+      <p className={styles.pokemonName}>{name}</p>
     </button>
   );
 };
