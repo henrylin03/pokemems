@@ -1,0 +1,7 @@
+.scores {
+  list-style: none;
+}
+
+.scoreItem {
+  font-family: var(--game-font);
+}

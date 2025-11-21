@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap");
+
+:root {
+  --purple: #3d308b;
+  --dark-purple: #330066;
+  --lilac: #7672ed;
+  --yellow: #f7b801;
+
+  --game-font: "Press Start 2P", system-ui;
+}
+
+* {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif, system-ui;
+}
+
+h1 {
+  font-family: var(--game-font);
+}

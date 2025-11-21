@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.left {
+  flex: 1;
+}
+
+.heading,
+.subtext {
+  font-weight: normal;
+  color: var(--yellow);
+}

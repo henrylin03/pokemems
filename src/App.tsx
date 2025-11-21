@@ -1,6 +1,7 @@
-import Header from "./components/Header";
 import { useAllPokemons } from "./hooks/useAllPokemons";
+import Header from "./components/Header";
 import "./styles/reset.css";
+import "./styles/global.css";
 
 const App = () => {
   const POKEMON_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 69];
