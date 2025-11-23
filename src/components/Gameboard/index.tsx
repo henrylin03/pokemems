@@ -15,17 +15,19 @@ const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
 
-  const [pokemonIds, setPokemonIds] = useState<number[]>(() =>
-    getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
+  const [displayedPokemonsIds, setDisplayedPokemonsIds] = useState<number[]>(
+    () => getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
   );
-  const { pokemons } = useAllPokemons(pokemonIds);
+  const { pokemons } = useAllPokemons(displayedPokemonsIds);
   const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
     useState<SelectedIds>(() => new Set<number>());
 
   const resetGame = () => {
-    resetCurrentRoundScore();
-    setPokemonIds(getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID));
     setPokemonIdsSelectedThisRound(new Set<number>());
+    resetCurrentRoundScore();
+    setDisplayedPokemonsIds(
+      getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
+    );
   };
 
   const handleMousedownOnCard = (pokemonId: number) => {
@@ -42,11 +44,11 @@ const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
       new Set(pokemonIdsSelectedThisRound).add(pokemonId),
     );
 
-    const newPokemonIds = getRandomPokemonIds(
+    const newDisplayedPokemonsIds = getRandomPokemonIds(
       TOTAL_POKEMON_IDS,
       MAX_POKEMON_ID,
     );
-    setPokemonIds(newPokemonIds);
+    setDisplayedPokemonsIds(newDisplayedPokemonsIds);
   };
 
   return (
