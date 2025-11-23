@@ -31,7 +31,7 @@ const App = () => {
       <main>
         <Gameboard
           updateScores={updateScores}
-          resetScore={resetCurrentRoundScore}
+          resetCurrentRoundScore={resetCurrentRoundScore}
         />
       </main>
     </>

@@ -8,10 +8,10 @@ type SelectedIds = Set<number>;
 
 interface Props {
   updateScores: () => void;
-  resetScore: () => void;
+  resetCurrentRoundScore: () => void;
 }
 
-const Gameboard = ({ updateScores, resetScore }: Props) => {
+const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
 
@@ -22,10 +22,18 @@ const Gameboard = ({ updateScores, resetScore }: Props) => {
   const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
     useState<SelectedIds>(() => new Set<number>());
 
+  const resetGame = () => {
+    resetCurrentRoundScore();
+    setPokemonIds(getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID));
+    setPokemonIdsSelectedThisRound(new Set<number>());
+  };
+
   const handleMousedownOnCard = (pokemonId: number) => {
+    console.log("selected pokemon Ids:", pokemonIdsSelectedThisRound);
+
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
       alert("Pokemon has been selected before. You lose.");
-      resetScore();
+      resetGame();
       return;
     }
 
