@@ -1,30 +1,11 @@
 import { useState } from "react";
 import { useAllPokemons } from "../../hooks/useAllPokemons";
 import Card from "./Card";
+import { getRandomPokemonIds } from "./helpers";
 import styles from "./Gameboard.module.css";
 
-const getRandomPokemonIds = (
-  totalIds: number,
-  maxPokemonId: number,
-): number[] => {
-  const getRandomId = (maxId: number): number =>
-    Math.floor(Math.random() * maxId + 1);
-
-  const ids = new Set<number>();
-
-  let count = 0;
-  while (count < totalIds) {
-    let randomPokemonId: number = getRandomId(maxPokemonId);
-    while (ids.has(randomPokemonId))
-      randomPokemonId = getRandomId(maxPokemonId);
-    ids.add(randomPokemonId);
-    count++;
-  }
-
-  return [...ids];
-};
-
 type SelectedIds = Set<number>;
+
 interface Props {
   updateScores: () => void;
   resetScore: () => void;
@@ -37,7 +18,7 @@ const Gameboard = ({ updateScores, resetScore }: Props) => {
   const [pokemonIds, setPokemonIds] = useState<number[]>(() =>
     getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
   );
-  const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
+  const { pokemons } = useAllPokemons(pokemonIds);
   const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
     useState<SelectedIds>(() => new Set<number>());
 
