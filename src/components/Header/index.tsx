@@ -1,7 +1,12 @@
 import Scoreboard from "../Scoreboard";
 import styles from "./Header.module.css";
 
-const Header = () => (
+interface Props {
+  currentScore: number;
+  highScore: number;
+}
+
+const Header = ({ currentScore, highScore }: Props) => (
   <header className={styles.header}>
     <section className={styles.left}>
       <h1 className={styles.heading}>Pokémems</h1>
@@ -10,7 +15,7 @@ const Header = () => (
       </p>
     </section>
 
-    <Scoreboard />
+    <Scoreboard currentScore={currentScore} highScore={highScore} />
   </header>
 );
 
