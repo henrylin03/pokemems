@@ -3,17 +3,21 @@ import styles from "./Card.module.css";
 
 interface Props {
   pokemon: Pokemon;
+  onMouseDown: (pokemonId: number) => void;
 }
 
-const Card = ({ pokemon }: Props) => {
+const Card = ({ pokemon, onMouseDown }: Props) => {
   const { id, name, imageUrl } = pokemon;
 
-  const handleClick = () => {
-    // randomise the ids being fed into the useAllPokemons hook;
-  };
-
   return (
-    <button onClick={handleClick} className={styles.card} aria-label={name}>
+    <button
+      onMouseDown={() => {
+        onMouseDown(id);
+      }}
+      className={styles.card}
+      aria-label={name}
+      data-pokemon-id={id}
+    >
       <figure className={styles.pokemonImageWrapper}>
         <img src={imageUrl} alt={name} className={styles.pokemonImage} />
       </figure>

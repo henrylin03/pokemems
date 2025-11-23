@@ -27,17 +27,22 @@ const Gameboard = () => {
   const MAX_POKEMON_ID = 150; // generation 1
 
   const pokemonIds = getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID);
-  console.log(pokemonIds);
   const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
 
-  const handleMousedownOnCard = (
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {};
+  const handleMousedownOnCard = (pokemonId: number) => {
+    console.log("pokemonId:", pokemonId);
+  };
 
   return (
     <section className={styles.section}>
       {pokemons.map((pokemon) => (
-        <Card key={pokemon.id} pokemon={pokemon} />
+        <Card
+          key={pokemon.id}
+          pokemon={pokemon}
+          onMouseDown={() => {
+            handleMousedownOnCard(pokemon.id);
+          }}
+        />
       ))}
     </section>
   );
