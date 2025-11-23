@@ -37,14 +37,20 @@ const Gameboard = () => {
     useState<SelectedIds>(() => new Set<number>());
 
   const handleMousedownOnCard = (pokemonId: number) => {
+    if (pokemonIdsSelectedThisRound.has(pokemonId)) {
+      alert("Pokemon has been selected before. You lose.");
+      return;
+    }
+
+    setPokemonIdsSelectedThisRound(() =>
+      new Set(pokemonIdsSelectedThisRound).add(pokemonId),
+    );
+
     const newPokemonIds = getRandomPokemonIds(
       TOTAL_POKEMON_IDS,
       MAX_POKEMON_ID,
     );
     setPokemonIds(newPokemonIds);
-    setPokemonIdsSelectedThisRound(() =>
-      new Set(pokemonIdsSelectedThisRound).add(pokemonId),
-    );
   };
 
   return (
