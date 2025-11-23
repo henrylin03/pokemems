@@ -24,14 +24,18 @@ const getRandomPokemonIds = (
   return [...ids];
 };
 
+type SelectedIds = Set<number>;
 const Gameboard = () => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
+
   const [pokemonIds, setPokemonIds] = useState<number[]>(() =>
     getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
   );
-
   const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
+  const [selectedPokemonIds, setSelectedPokemonIds] = useState<SelectedIds>(
+    () => new Set<number>(),
+  );
 
   const handleMousedownOnCard = (pokemonId: number) => {
     const newPokemonIds = getRandomPokemonIds(
