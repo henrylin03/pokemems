@@ -22,9 +22,9 @@
 
 .pokemonName {
   font-family: var(--game-font);
+  color: var(--purple);
   text-transform: uppercase;
   font-size: medium;
-  color: white;
   position: absolute;
   bottom: 0;
   text-align: center;
