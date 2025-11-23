@@ -1,44 +1,52 @@
 import { useState } from "react";
 import { useAllPokemons } from "../../hooks/useAllPokemons";
 import Card from "./Card";
+import { getRandomPokemonIds } from "./helpers";
 import styles from "./Gameboard.module.css";
 
-const getRandomPokemonIds = (
-  totalIds: number,
-  maxPokemonId: number,
-): number[] => {
-  const getRandomId = (maxId: number): number =>
-    Math.floor(Math.random() * maxId + 1);
+type SelectedIds = Set<number>;
 
-  const ids = new Set<number>();
+interface Props {
+  updateScores: () => void;
+  resetCurrentRoundScore: () => void;
+}
 
-  let count = 0;
-  while (count < totalIds) {
-    let randomPokemonId: number = getRandomId(maxPokemonId);
-    while (ids.has(randomPokemonId))
-      randomPokemonId = getRandomId(maxPokemonId);
-    ids.add(randomPokemonId);
-    count++;
-  }
-
-  return [...ids];
-};
-
-const Gameboard = () => {
+const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
-  const [pokemonIds, setPokemonIds] = useState<number[]>(() =>
-    getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
-  );
 
-  const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
+  const [displayedPokemonsIds, setDisplayedPokemonsIds] = useState<number[]>(
+    () => getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
+  );
+  const { pokemons } = useAllPokemons(displayedPokemonsIds);
+  const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
+    useState<SelectedIds>(() => new Set<number>());
+
+  const resetGame = () => {
+    setPokemonIdsSelectedThisRound(new Set<number>());
+    resetCurrentRoundScore();
+    setDisplayedPokemonsIds(
+      getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
+    );
+  };
 
   const handleMousedownOnCard = (pokemonId: number) => {
-    const newPokemonIds = getRandomPokemonIds(
+    if (pokemonIdsSelectedThisRound.has(pokemonId)) {
+      alert("Pokemon has been selected before. You lose.");
+      resetGame();
+      return;
+    }
+
+    updateScores();
+    setPokemonIdsSelectedThisRound(() =>
+      new Set(pokemonIdsSelectedThisRound).add(pokemonId),
+    );
+
+    const newDisplayedPokemonsIds = getRandomPokemonIds(
       TOTAL_POKEMON_IDS,
       MAX_POKEMON_ID,
     );
-    setPokemonIds(newPokemonIds);
+    setDisplayedPokemonsIds(newDisplayedPokemonsIds);
   };
 
   return (
