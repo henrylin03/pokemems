@@ -8,11 +8,15 @@ const getHighScore = (
   return savedHighScore === null ? defaultHighScore : Number(savedHighScore);
 };
 
+type UseHighScoreReturnedValue = [
+  number,
+  React.Dispatch<React.SetStateAction<number>>,
+];
 export const useHighScore = (
   localStorageKey: string,
   defaultHighScore: number,
-) => {
-  const [highScore, setHighScore] = useState(() =>
+): UseHighScoreReturnedValue => {
+  const [highScore, setHighScore] = useState<number>(() =>
     getHighScore(localStorageKey, defaultHighScore),
   );
 
