@@ -33,9 +33,8 @@ const Gameboard = () => {
     getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
   );
   const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
-  const [selectedPokemonIds, setSelectedPokemonIds] = useState<SelectedIds>(
-    () => new Set<number>(),
-  );
+  const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
+    useState<SelectedIds>(() => new Set<number>());
 
   const handleMousedownOnCard = (pokemonId: number) => {
     const newPokemonIds = getRandomPokemonIds(
@@ -43,6 +42,9 @@ const Gameboard = () => {
       MAX_POKEMON_ID,
     );
     setPokemonIds(newPokemonIds);
+    setPokemonIdsSelectedThisRound(() =>
+      new Set(pokemonIdsSelectedThisRound).add(pokemonId),
+    );
   };
 
   return (
