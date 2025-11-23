@@ -14,11 +14,18 @@ const App = () => {
   const [currentScore, setCurrentScore] = useState<number>(0);
   const [highScore, setHighScore] = useState<number>(0);
 
+  const updateScores = () => {
+    const newScore = currentScore + 1;
+    setCurrentScore(newScore);
+
+    if (newScore > highScore) setHighScore(newScore);
+  };
+
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore} />
       <main>
-        <Gameboard />
+        <Gameboard updateScores={updateScores} />
       </main>
     </>
   );

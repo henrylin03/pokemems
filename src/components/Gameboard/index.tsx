@@ -25,7 +25,11 @@ const getRandomPokemonIds = (
 };
 
 type SelectedIds = Set<number>;
-const Gameboard = () => {
+interface Props {
+  updateScores: () => void;
+}
+
+const Gameboard = ({ updateScores }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
 
@@ -42,6 +46,7 @@ const Gameboard = () => {
       return;
     }
 
+    updateScores();
     setPokemonIdsSelectedThisRound(() =>
       new Set(pokemonIdsSelectedThisRound).add(pokemonId),
     );
