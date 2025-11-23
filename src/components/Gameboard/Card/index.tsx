@@ -1,9 +1,15 @@
 import type { Pokemon } from "../../../App";
 import styles from "./Card.module.css";
 
-const Card = ({ id, name, imageUrl }: Pokemon) => {
+interface Props {
+  pokemon: Pokemon;
+}
+
+const Card = ({ pokemon }: Props) => {
+  const { id, name, imageUrl } = pokemon;
+
   const handleClick = () => {
-    alert(`you've clicked pokemon with id: ${String(id)}`);
+    // randomise the ids being fed into the useAllPokemons hook;
   };
 
   return (
