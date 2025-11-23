@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAllPokemons } from "../../hooks/useAllPokemons";
 import Card from "./Card";
 import styles from "./Gameboard.module.css";
@@ -10,6 +11,7 @@ const getRandomPokemonIds = (
     Math.floor(Math.random() * maxId + 1);
 
   const ids = new Set<number>();
+
   let count = 0;
   while (count < totalIds) {
     let randomPokemonId: number = getRandomId(maxPokemonId);
@@ -25,12 +27,18 @@ const getRandomPokemonIds = (
 const Gameboard = () => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
+  const [pokemonIds, setPokemonIds] = useState<number[]>(() =>
+    getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
+  );
 
-  const pokemonIds = getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID);
   const { pokemons, error, isLoading } = useAllPokemons(pokemonIds);
 
   const handleMousedownOnCard = (pokemonId: number) => {
-    console.log("pokemonId:", pokemonId);
+    const newPokemonIds = getRandomPokemonIds(
+      TOTAL_POKEMON_IDS,
+      MAX_POKEMON_ID,
+    );
+    setPokemonIds(newPokemonIds);
   };
 
   return (
