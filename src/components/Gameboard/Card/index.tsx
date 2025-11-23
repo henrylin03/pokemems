@@ -1,13 +1,22 @@
 import type { Pokemon } from "../../../App";
 import styles from "./Card.module.css";
 
-const Card = ({ id, name, imageUrl }: Pokemon) => {
-  const handleClick = () => {
-    alert(`you've clicked pokemon with id: ${String(id)}`);
-  };
+interface Props {
+  pokemon: Pokemon;
+  onMouseDown: (pokemonId: number) => void;
+}
+
+const Card = ({ pokemon, onMouseDown }: Props) => {
+  const { id, name, imageUrl } = pokemon;
 
   return (
-    <button onClick={handleClick} className={styles.card} aria-label={name}>
+    <button
+      onMouseDown={() => {
+        onMouseDown(id);
+      }}
+      className={styles.card}
+      aria-label={name}
+    >
       <figure className={styles.pokemonImageWrapper}>
         <img src={imageUrl} alt={name} className={styles.pokemonImage} />
       </figure>
