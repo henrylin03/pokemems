@@ -21,11 +21,18 @@ const App = () => {
     if (newScore > highScore) setHighScore(newScore);
   };
 
+  const resetCurrentRoundScore = () => {
+    setCurrentScore(0);
+  };
+
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore} />
       <main>
-        <Gameboard updateScores={updateScores} />
+        <Gameboard
+          updateScores={updateScores}
+          resetScore={resetCurrentRoundScore}
+        />
       </main>
     </>
   );

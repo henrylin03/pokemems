@@ -27,9 +27,10 @@ const getRandomPokemonIds = (
 type SelectedIds = Set<number>;
 interface Props {
   updateScores: () => void;
+  resetScore: () => void;
 }
 
-const Gameboard = ({ updateScores }: Props) => {
+const Gameboard = ({ updateScores, resetScore }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
 
@@ -43,6 +44,7 @@ const Gameboard = ({ updateScores }: Props) => {
   const handleMousedownOnCard = (pokemonId: number) => {
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
       alert("Pokemon has been selected before. You lose.");
+      resetScore();
       return;
     }
 
