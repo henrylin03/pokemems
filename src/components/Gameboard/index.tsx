@@ -31,8 +31,6 @@ const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
   };
 
   const handleMousedownOnCard = (pokemonId: number) => {
-    console.log("selected pokemon Ids:", pokemonIdsSelectedThisRound);
-
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
       alert("Pokemon has been selected before. You lose.");
       resetGame();
