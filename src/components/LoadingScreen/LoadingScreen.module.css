@@ -1,0 +1,8 @@
+.loadingScreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.7);
+}

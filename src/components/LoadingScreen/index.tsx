@@ -6,7 +6,13 @@ interface Props {
 
 const LoadingScreen = ({ isLoading }: Props) => {
   if (!isLoading) return <></>;
-  return;
+  return (
+    <div className={styles.loadingScreen}>
+      <article className={styles.card}>
+        <p>Catching them all...</p>
+      </article>
+    </div>
+  );
 };
 
 export default LoadingScreen;
