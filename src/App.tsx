@@ -43,8 +43,15 @@ const App = () => {
     if (newScore > highScore) setHighScore(newScore);
   };
 
-  const resetCurrentRoundScore = () => {
-    setCurrentScore(0);
+  const resetGame = () => {
+    setPokemonIdsSelectedThisRound(new Set<number>());
+    setCurrentScore(DEFAULT_SCORE);
+    setDisplayedPokemonIds(
+      getRandomPokemonIds(
+        TOTAL_POKEMONS_DISPLAYED,
+        POKEMON_ID_OF_LAST_POKEMON_IN_GENERATION_1,
+      ),
+    );
   };
 
   return (
@@ -53,11 +60,11 @@ const App = () => {
       <main>
         <Gameboard
           pokemons={pokemons}
-          pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
-          updateScores={updateScores}
-          resetCurrentRoundScore={resetCurrentRoundScore}
           setDisplayedPokemonsIds={setDisplayedPokemonIds}
+          pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
           setPokemonIdsSelectedThisRound={setPokemonIdsSelectedThisRound}
+          updateScores={updateScores}
+          resetGame={resetGame}
         />
       </main>
 

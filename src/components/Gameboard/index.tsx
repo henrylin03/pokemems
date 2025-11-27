@@ -7,31 +7,23 @@ interface Props {
   pokemons: Pokemon[];
   pokemonIdsSelectedThisRound: Set<number>;
   updateScores: () => void;
-  resetCurrentRoundScore: () => void;
   setDisplayedPokemonsIds: (pokemonIds: number[]) => void;
   setPokemonIdsSelectedThisRound: (
     pokemonIds: Set<number> | ((prev: Set<number>) => Set<number>),
   ) => void;
+  resetGame: () => void;
 }
 
 const Gameboard = ({
   pokemons,
   pokemonIdsSelectedThisRound,
   updateScores,
-  resetCurrentRoundScore,
   setDisplayedPokemonsIds,
   setPokemonIdsSelectedThisRound,
+  resetGame,
 }: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
-
-  const resetGame = () => {
-    setPokemonIdsSelectedThisRound(new Set<number>());
-    resetCurrentRoundScore();
-    setDisplayedPokemonsIds(
-      getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
-    );
-  };
 
   const handleMousedownOnCard = (pokemonId: number) => {
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
