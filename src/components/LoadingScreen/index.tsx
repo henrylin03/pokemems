@@ -11,7 +11,7 @@ const LoadingScreen = ({ isLoading }: Props) => {
     <div className={styles.loadingScreen}>
       <article className={styles.card}>
         <img src={masterballImg} alt="Master ball" className={styles.img} />
-        <p className={styles.text}>Catching them all...</p>
+        <p className={styles.text}>Catching them all</p>
       </article>
     </div>
   );
