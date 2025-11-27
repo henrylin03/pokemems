@@ -3,12 +3,8 @@
 }
 
 .card {
-  margin: 0 auto;
+  composes: modal from "../../styles/modals.module.css";
   background-color: var(--lilac);
-  min-height: 50%;
-  width: 50%;
-  border-radius: 1rem;
-  place-content: center;
 }
 
 .img {

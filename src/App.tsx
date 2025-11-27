@@ -75,7 +75,7 @@ const App = () => {
 
       {/* modals */}
       <LoadingScreen isVisible={isLoading} />
-      <GameOverModal isVisible />
+      <GameOverModal isVisible={false} />
     </>
   );
 };

@@ -7,3 +7,11 @@
   background-color: rgba(0, 0, 0, 0.7);
   place-content: center;
 }
+
+.modal {
+  margin: auto;
+  min-height: 50%;
+  width: 50%;
+  border-radius: 1rem;
+  place-content: center;
+}

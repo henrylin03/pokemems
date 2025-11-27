@@ -1,3 +1,7 @@
 .backdrop {
   composes: backdrop from "../../styles/modals.module.css";
 }
+
+.modal {
+  composes: modal from "../../styles/modals.module.css";
+}
