@@ -1,0 +1,72 @@
+.loadingScreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.7);
+  place-content: center;
+}
+
+.card {
+  margin: 0 auto;
+  background-color: var(--lilac);
+  min-height: 50%;
+  width: 50%;
+  border-radius: 1rem;
+  place-content: center;
+}
+
+.img {
+  margin: 0 auto;
+  width: 5rem;
+  height: 5rem;
+  animation: rotate 1.75s ease-in-out 0s infinite;
+}
+
+.text {
+  text-align: center;
+  font-family: var(--game-font);
+  color: var(--purple);
+  font-size: medium;
+}
+
+.text::after {
+  display: inline-block;
+  animation: dots 2s steps(1, end) infinite;
+  content: "";
+}
+
+/* ANIMATIONS */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80% {
+    content: "...";
+  }
+  100% {
+    content: "...";
+  }
+}
