@@ -1,9 +1,11 @@
 import Card from "./Card";
-import { getRandomPokemonIds } from "./helpers";
+import { getRandomPokemonIds } from "../../helpers";
 import type { Pokemon } from "../../App";
 import styles from "./Gameboard.module.css";
 
 interface Props {
+  totalPokemonsDisplayed: number;
+  maxPokemonId: number;
   pokemons: Pokemon[];
   pokemonIdsSelectedThisRound: Set<number>;
   updateScores: () => void;
@@ -15,6 +17,8 @@ interface Props {
 }
 
 const Gameboard = ({
+  totalPokemonsDisplayed,
+  maxPokemonId,
   pokemons,
   pokemonIdsSelectedThisRound,
   updateScores,
@@ -22,9 +26,6 @@ const Gameboard = ({
   setPokemonIdsSelectedThisRound,
   resetGame,
 }: Props) => {
-  const TOTAL_POKEMON_IDS = 10;
-  const MAX_POKEMON_ID = 150; // generation 1
-
   const handleMousedownOnCard = (pokemonId: number) => {
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
       alert("Pokemon has been selected before. You lose.");
@@ -38,8 +39,8 @@ const Gameboard = ({
     );
 
     const newDisplayedPokemonsIds = getRandomPokemonIds(
-      TOTAL_POKEMON_IDS,
-      MAX_POKEMON_ID,
+      totalPokemonsDisplayed,
+      maxPokemonId,
     );
     setDisplayedPokemonsIds(newDisplayedPokemonsIds);
   };

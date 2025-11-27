@@ -18,12 +18,12 @@ const App = () => {
   const DEFAULT_SCORE = 0;
   const HIGH_SCORE_LOCAL_STORAGE_KEY = "pokememsHighScore";
   const TOTAL_POKEMONS_DISPLAYED = 10;
-  const POKEMON_ID_OF_LAST_POKEMON_IN_GENERATION_1 = 150;
+  const ID_OF_LAST_POKEMON_IN_GENERATION_1 = 150;
 
   const [displayedPokemonIds, setDisplayedPokemonIds] = useState<number[]>(() =>
     getRandomPokemonIds(
       TOTAL_POKEMONS_DISPLAYED,
-      POKEMON_ID_OF_LAST_POKEMON_IN_GENERATION_1,
+      ID_OF_LAST_POKEMON_IN_GENERATION_1,
     ),
   );
 
@@ -49,7 +49,7 @@ const App = () => {
     setDisplayedPokemonIds(
       getRandomPokemonIds(
         TOTAL_POKEMONS_DISPLAYED,
-        POKEMON_ID_OF_LAST_POKEMON_IN_GENERATION_1,
+        ID_OF_LAST_POKEMON_IN_GENERATION_1,
       ),
     );
   };
@@ -59,6 +59,8 @@ const App = () => {
       <Header currentScore={currentScore} highScore={highScore} />
       <main>
         <Gameboard
+          totalPokemonsDisplayed={TOTAL_POKEMONS_DISPLAYED}
+          maxPokemonId={ID_OF_LAST_POKEMON_IN_GENERATION_1}
           pokemons={pokemons}
           setDisplayedPokemonsIds={setDisplayedPokemonIds}
           pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
