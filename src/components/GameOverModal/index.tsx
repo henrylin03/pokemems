@@ -6,7 +6,7 @@ interface Props {
 
 const GameOverModal = ({ isVisible }: Props) => {
   if (!isVisible) return <></>;
-  return <div className={styles.fullScreenBackdrop}></div>;
+  return <div className={styles.backdrop}></div>;
 };
 
 export default GameOverModal;
