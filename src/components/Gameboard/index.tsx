@@ -1,26 +1,29 @@
-import { useState } from "react";
-import { useAllPokemons } from "../../hooks/useAllPokemons";
 import Card from "./Card";
 import { getRandomPokemonIds } from "./helpers";
+import type { Pokemon } from "../../App";
 import styles from "./Gameboard.module.css";
 
-type SelectedIds = Set<number>;
-
 interface Props {
+  pokemons: Pokemon[];
+  pokemonIdsSelectedThisRound: Set<number>;
   updateScores: () => void;
   resetCurrentRoundScore: () => void;
+  setDisplayedPokemonsIds: (pokemonIds: number[]) => void;
+  setPokemonIdsSelectedThisRound: (
+    pokemonIds: Set<number> | ((prev: Set<number>) => Set<number>),
+  ) => void;
 }
 
-const Gameboard = ({ updateScores, resetCurrentRoundScore }: Props) => {
+const Gameboard = ({
+  pokemons,
+  pokemonIdsSelectedThisRound,
+  updateScores,
+  resetCurrentRoundScore,
+  setDisplayedPokemonsIds,
+  setPokemonIdsSelectedThisRound,
+}: Props) => {
   const TOTAL_POKEMON_IDS = 10;
   const MAX_POKEMON_ID = 150; // generation 1
-
-  const [displayedPokemonsIds, setDisplayedPokemonsIds] = useState<number[]>(
-    () => getRandomPokemonIds(TOTAL_POKEMON_IDS, MAX_POKEMON_ID),
-  );
-  const { pokemons } = useAllPokemons(displayedPokemonsIds);
-  const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
-    useState<SelectedIds>(() => new Set<number>());
 
   const resetGame = () => {
     setPokemonIdsSelectedThisRound(new Set<number>());
