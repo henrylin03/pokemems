@@ -5,4 +5,21 @@
   width: 100dvw;
   height: 100dvh;
   background-color: rgba(0, 0, 0, 0.7);
+  place-content: center;
+}
+
+.card {
+  margin: 0 auto;
+  background-color: var(--lilac);
+  min-height: 50%;
+  width: 50%;
+  border-radius: 1rem;
+  place-content: center;
+}
+
+.text {
+  text-align: center;
+  font-family: var(--game-font);
+  color: var(--purple);
+  font-size: medium;
 }

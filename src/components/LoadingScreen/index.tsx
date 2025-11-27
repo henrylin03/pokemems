@@ -9,7 +9,7 @@ const LoadingScreen = ({ isLoading }: Props) => {
   return (
     <div className={styles.loadingScreen}>
       <article className={styles.card}>
-        <p>Catching them all...</p>
+        <p className={styles.text}>Catching them all...</p>
       </article>
     </div>
   );
