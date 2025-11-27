@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import * as z from "zod";
 import type { Pokemon } from "../App";
 
+interface HookReturnObject {
+  pokemons: Pokemon[];
+  error: string | null;
+  isLoading: boolean;
+}
+
 const PokemonApiResponseSchema = z.object({
   id: z.number(),
   name: z.string(),
@@ -11,7 +17,7 @@ const PokemonApiResponseSchema = z.object({
 });
 
 // ? move into a data provider (context)? look at notion notes: https://www.notion.so/fetching-data-in-react-128cf1e7a6a680c386fddc6b5124274a?source=copy_link#128cf1e7a6a680fc82a1ef3778c610cb
-export const useAllPokemons = (pokemonIds: number[]) => {
+export const useAllPokemons = (pokemonIds: number[]): HookReturnObject => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +36,7 @@ export const useAllPokemons = (pokemonIds: number[]) => {
       const json: unknown = await response.json();
       const data = PokemonApiResponseSchema.parse(json);
 
-      const pokemonData: Pokemon = {
+      const pokemonData = {
         id: data.id,
         name: data.name,
         imageUrl: data.sprites.front_default,
