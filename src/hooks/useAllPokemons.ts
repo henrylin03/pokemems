@@ -36,10 +36,17 @@ export const useAllPokemons = (pokemonIds: number[]): HookReturnObject => {
       const json: unknown = await response.json();
       const data = PokemonApiResponseSchema.parse(json);
 
+      const imageUrl = data.sprites.front_default;
+      await new Promise((resolve) => {
+        const img = new Image();
+        img.src = imageUrl;
+        img.onload = resolve;
+      });
+
       const pokemonData = {
         id: data.id,
         name: data.name,
-        imageUrl: data.sprites.front_default,
+        imageUrl,
       };
 
       return pokemonData;
