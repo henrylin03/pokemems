@@ -4,6 +4,7 @@ import { useHighScore } from "./hooks/useHighScore";
 import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
+import GameOverModal from "./components/GameOverModal";
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
@@ -72,7 +73,9 @@ const App = () => {
         />
       </main>
 
+      {/* modals */}
       <LoadingScreen isLoading={isLoading} />
+      <GameOverModal isVisible />
     </>
   );
 };

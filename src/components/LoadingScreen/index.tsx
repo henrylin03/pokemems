@@ -8,7 +8,7 @@ interface Props {
 const LoadingScreen = ({ isLoading }: Props) => {
   if (!isLoading) return <></>;
   return (
-    <div className={styles.loadingScreen}>
+    <div className={styles.backdrop}>
       <article className={styles.card}>
         <img src={masterballImg} alt="Master ball" className={styles.img} />
         <p className={styles.text}>Catching them all</p>
