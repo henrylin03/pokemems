@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import "./styles/reset.css";
 import "./styles/global.css";
+import LoadingScreen from "./components/LoadingScreen";
 
 export interface Pokemon {
   id: number;
@@ -41,6 +42,8 @@ const App = () => {
           resetCurrentRoundScore={resetCurrentRoundScore}
         />
       </main>
+
+      <LoadingScreen isLoading={true} />
     </>
   );
 };
