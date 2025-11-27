@@ -54,6 +54,8 @@ const App = () => {
     );
   };
 
+  // ? can i use suspense here?
+
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore} />
