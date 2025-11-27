@@ -49,6 +49,7 @@ export const useAllPokemons = (pokemonIds: number[]): HookReturnObject => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     let shouldIgnore = false;
 
     const fetchAllPokemons = async (pokemonIds: number[]) => {
