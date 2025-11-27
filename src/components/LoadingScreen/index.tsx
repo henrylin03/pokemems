@@ -1,3 +1,4 @@
+import masterballImg from "./masterball.png";
 import styles from "./LoadingScreen.module.css";
 
 interface Props {
@@ -9,6 +10,7 @@ const LoadingScreen = ({ isLoading }: Props) => {
   return (
     <div className={styles.loadingScreen}>
       <article className={styles.card}>
+        <img src={masterballImg} alt="Master ball" className={styles.img} />
         <p className={styles.text}>Catching them all...</p>
       </article>
     </div>
