@@ -27,8 +27,6 @@ const App = () => {
       ID_OF_LAST_POKEMON_IN_GENERATION_1,
     ),
   );
-
-  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
   const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
     useState(() => new Set<number>());
   const [currentScore, setCurrentScore] = useState<number>(DEFAULT_SCORE);
@@ -36,6 +34,8 @@ const App = () => {
     HIGH_SCORE_LOCAL_STORAGE_KEY,
     DEFAULT_SCORE,
   );
+  const [isGameOver, setIsGameOver] = useState(false);
+  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
 
   const updateScores = () => {
     const newScore = currentScore + 1;
@@ -68,13 +68,17 @@ const App = () => {
           pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
           setPokemonIdsSelectedThisRound={setPokemonIdsSelectedThisRound}
           updateScores={updateScores}
-          resetGame={resetGame}
+          setIsGameOver={setIsGameOver}
         />
       </main>
 
       {/* modals */}
       <LoadingScreen isVisible={isLoading} />
-      <GameOverModal isVisible resetGame={resetGame} />
+      <GameOverModal
+        isVisible={isGameOver}
+        resetGame={resetGame}
+        setIsGameOver={setIsGameOver}
+      />
     </>
   );
 };

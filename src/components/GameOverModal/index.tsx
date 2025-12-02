@@ -4,10 +4,16 @@ import styles from "./GameOverModal.module.css";
 interface Props {
   isVisible: boolean;
   resetGame: () => void;
+  setIsGameOver: (isGameOverState: boolean) => void;
 }
 
-const GameOverModal = ({ isVisible, resetGame }: Props) => {
+const GameOverModal = ({ isVisible, resetGame, setIsGameOver }: Props) => {
   if (!isVisible) return <></>;
+
+  const handleClickOnButton = () => {
+    setIsGameOver(false);
+    resetGame();
+  };
 
   return (
     <div className={styles.backdrop}>
@@ -16,13 +22,17 @@ const GameOverModal = ({ isVisible, resetGame }: Props) => {
         <img
           src={img}
           className={styles.img}
-          alt="Sad shroomish"
+          alt="Sad Psyduck"
           loading="lazy"
         />
         <p className={styles.copy}>
           You selected a Pokémon that you've already selected before
         </p>
-        <button type="button" className={styles.button} onClick={resetGame}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={handleClickOnButton}
+        >
           Play again
         </button>
       </article>

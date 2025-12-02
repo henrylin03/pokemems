@@ -13,7 +13,7 @@ interface Props {
   setPokemonIdsSelectedThisRound: (
     pokemonIds: Set<number> | ((prev: Set<number>) => Set<number>),
   ) => void;
-  resetGame: () => void;
+  setIsGameOver: (isGameOverState: boolean) => void;
 }
 
 const Gameboard = ({
@@ -24,12 +24,11 @@ const Gameboard = ({
   updateScores,
   setDisplayedPokemonsIds,
   setPokemonIdsSelectedThisRound,
-  resetGame,
+  setIsGameOver,
 }: Props) => {
   const handleMousedownOnCard = (pokemonId: number) => {
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
-      alert("Pokemon has been selected before. You lose.");
-      resetGame();
+      setIsGameOver(true);
       return;
     }
 
