@@ -7,6 +7,14 @@
   padding: 1rem;
 }
 
+.card:hover {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+  transition:
+    filter 0.3s ease-in-out,
+    transform 0.15s ease-in;
+}
+
 .pokemonImageWrapper {
   height: 90%;
   width: 75%;
