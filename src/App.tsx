@@ -5,6 +5,12 @@ import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
 import GameOverModal from "./components/GameOverModal";
+import {
+  TOTAL_POKEMONS_DISPLAYED,
+  ID_OF_LAST_POKEMON_IN_GENERATION_1,
+  DEFAULT_SCORE,
+  HIGH_SCORE_LOCALSTORAGE_KEY,
+} from "./constants";
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
@@ -16,11 +22,6 @@ export interface Pokemon {
 }
 
 const App = () => {
-  const DEFAULT_SCORE = 0;
-  const HIGH_SCORE_LOCAL_STORAGE_KEY = "pokememsHighScore";
-  const TOTAL_POKEMONS_DISPLAYED = 10;
-  const ID_OF_LAST_POKEMON_IN_GENERATION_1 = 150;
-
   const [displayedPokemonIds, setDisplayedPokemonIds] = useState<number[]>(() =>
     getRandomPokemonIds(
       TOTAL_POKEMONS_DISPLAYED,
@@ -31,7 +32,7 @@ const App = () => {
     useState(() => new Set<number>());
   const [currentScore, setCurrentScore] = useState<number>(DEFAULT_SCORE);
   const [highScore, setHighScore] = useHighScore(
-    HIGH_SCORE_LOCAL_STORAGE_KEY,
+    HIGH_SCORE_LOCALSTORAGE_KEY,
     DEFAULT_SCORE,
   );
   const [isGameOver, setIsGameOver] = useState(false);
