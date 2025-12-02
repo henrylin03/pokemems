@@ -21,6 +21,7 @@
 
 .img {
   width: 6rem;
+  animation: tilt 2s infinite alternate ease-in-out;
 }
 
 .textContainer {
@@ -41,4 +42,17 @@
   line-height: 0;
   color: var(--yellow);
   margin-top: 1rem;
+}
+
+/* ANIMATIONS */
+@keyframes tilt {
+  0% {
+    rotate: none;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  100% {
+    rotate: 20deg;
+  }
 }
