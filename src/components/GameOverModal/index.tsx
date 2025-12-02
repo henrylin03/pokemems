@@ -3,9 +3,10 @@ import styles from "./GameOverModal.module.css";
 
 interface Props {
   isVisible: boolean;
+  resetGame: () => void;
 }
 
-const GameOverModal = ({ isVisible }: Props) => {
+const GameOverModal = ({ isVisible, resetGame }: Props) => {
   if (!isVisible) return <></>;
 
   return (
@@ -21,7 +22,7 @@ const GameOverModal = ({ isVisible }: Props) => {
         <p className={styles.copy}>
           You selected a Pokémon that you've already selected before
         </p>
-        <button type="button" className={styles.button}>
+        <button type="button" className={styles.button} onClick={resetGame}>
           Play again
         </button>
       </article>
