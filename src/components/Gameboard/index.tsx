@@ -1,28 +1,28 @@
 import Card from "./Card";
-import { getRandomPokemonIds } from "../../helpers";
 import type { Pokemon } from "../../App";
 import styles from "./Gameboard.module.css";
+import {
+  ID_OF_LAST_POKEMON_IN_GENERATION_1,
+  TOTAL_POKEMONS_DISPLAYED,
+} from "../../constants";
+import { getRandomPokemonIds } from "../../helpers";
 
 interface Props {
-  totalPokemonsDisplayed: number;
-  maxPokemonId: number;
   pokemons: Pokemon[];
-  pokemonIdsSelectedThisRound: Set<number>;
-  updateScores: () => void;
   setDisplayedPokemonsIds: (pokemonIds: number[]) => void;
+  pokemonIdsSelectedThisRound: Set<number>;
   setPokemonIdsSelectedThisRound: (
     pokemonIds: Set<number> | ((prev: Set<number>) => Set<number>),
   ) => void;
+  updateScores: () => void;
   setIsGameOver: (isGameOverState: boolean) => void;
 }
 
 const Gameboard = ({
-  totalPokemonsDisplayed,
-  maxPokemonId,
   pokemons,
+  setDisplayedPokemonsIds,
   pokemonIdsSelectedThisRound,
   updateScores,
-  setDisplayedPokemonsIds,
   setPokemonIdsSelectedThisRound,
   setIsGameOver,
 }: Props) => {
@@ -38,8 +38,8 @@ const Gameboard = ({
     );
 
     const newDisplayedPokemonsIds = getRandomPokemonIds(
-      totalPokemonsDisplayed,
-      maxPokemonId,
+      TOTAL_POKEMONS_DISPLAYED,
+      ID_OF_LAST_POKEMON_IN_GENERATION_1,
     );
     setDisplayedPokemonsIds(newDisplayedPokemonsIds);
   };

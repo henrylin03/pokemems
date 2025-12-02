@@ -61,8 +61,6 @@ const App = () => {
       <Header currentScore={currentScore} highScore={highScore} />
       <main>
         <Gameboard
-          totalPokemonsDisplayed={TOTAL_POKEMONS_DISPLAYED}
-          maxPokemonId={ID_OF_LAST_POKEMON_IN_GENERATION_1}
           pokemons={pokemons}
           setDisplayedPokemonsIds={setDisplayedPokemonIds}
           pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
