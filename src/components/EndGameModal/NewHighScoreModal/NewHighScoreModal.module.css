@@ -4,6 +4,7 @@
 
 .modal {
   composes: modal from "../../../styles/modals.module.css";
+  padding: 2rem;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -16,6 +17,10 @@
   text-transform: uppercase;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.img {
+  width: 6rem;
 }
 
 .textContainer {
@@ -35,4 +40,5 @@
   font-size: 2rem;
   line-height: 0;
   color: var(--yellow);
+  margin-top: 1rem;
 }

@@ -72,13 +72,18 @@ const App = () => {
 
       <LoadingScreen isVisible={isLoading} />
 
-      {isGameOver && (
+      {/* {isGameOver && (
         <EndGameModal
           isNewHighScore
           resetGame={resetGame}
           setIsGameOver={setIsGameOver}
         />
-      )}
+      )} */}
+      <EndGameModal
+        isNewHighScore
+        resetGame={resetGame}
+        setIsGameOver={setIsGameOver}
+      />
     </>
   );
 };
