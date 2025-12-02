@@ -1,20 +1,10 @@
-.loadingScreen {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100dvw;
-  height: 100dvh;
-  background-color: rgba(0, 0, 0, 0.7);
-  place-content: center;
+.backdrop {
+  composes: backdrop from "../../styles/modals.module.css";
 }
 
 .card {
-  margin: 0 auto;
+  composes: modal from "../../styles/modals.module.css";
   background-color: var(--lilac);
-  min-height: 50%;
-  width: 50%;
-  border-radius: 1rem;
-  place-content: center;
 }
 
 .img {

@@ -4,6 +4,7 @@ import { useHighScore } from "./hooks/useHighScore";
 import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
+import GameOverModal from "./components/GameOverModal";
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
@@ -26,8 +27,6 @@ const App = () => {
       ID_OF_LAST_POKEMON_IN_GENERATION_1,
     ),
   );
-
-  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
   const [pokemonIdsSelectedThisRound, setPokemonIdsSelectedThisRound] =
     useState(() => new Set<number>());
   const [currentScore, setCurrentScore] = useState<number>(DEFAULT_SCORE);
@@ -35,6 +34,8 @@ const App = () => {
     HIGH_SCORE_LOCAL_STORAGE_KEY,
     DEFAULT_SCORE,
   );
+  const [isGameOver, setIsGameOver] = useState(false);
+  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
 
   const updateScores = () => {
     const newScore = currentScore + 1;
@@ -54,8 +55,6 @@ const App = () => {
     );
   };
 
-  // ? can i use suspense here?
-
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore} />
@@ -68,11 +67,16 @@ const App = () => {
           pokemonIdsSelectedThisRound={pokemonIdsSelectedThisRound}
           setPokemonIdsSelectedThisRound={setPokemonIdsSelectedThisRound}
           updateScores={updateScores}
-          resetGame={resetGame}
+          setIsGameOver={setIsGameOver}
         />
       </main>
 
-      <LoadingScreen isLoading={isLoading} />
+      <LoadingScreen isVisible={isLoading} />
+      <GameOverModal
+        isVisible={isGameOver}
+        resetGame={resetGame}
+        setIsGameOver={setIsGameOver}
+      />
     </>
   );
 };

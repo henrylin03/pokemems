@@ -2,13 +2,13 @@ import masterballImg from "./masterball.png";
 import styles from "./LoadingScreen.module.css";
 
 interface Props {
-  isLoading: boolean;
+  isVisible: boolean;
 }
 
-const LoadingScreen = ({ isLoading }: Props) => {
-  if (!isLoading) return <></>;
+const LoadingScreen = ({ isVisible }: Props) => {
+  if (!isVisible) return <></>;
   return (
-    <div className={styles.loadingScreen}>
+    <div className={styles.backdrop}>
       <article className={styles.card}>
         <img src={masterballImg} alt="Master ball" className={styles.img} />
         <p className={styles.text}>Catching them all</p>
