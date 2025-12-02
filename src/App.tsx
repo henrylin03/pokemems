@@ -4,7 +4,7 @@ import { useHighScore } from "./hooks/useHighScore";
 import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
-import GameOverModal from "./components/GameOverModal";
+import EndGameModal from "./components/EndGameModal";
 import {
   TOTAL_POKEMONS_DISPLAYED,
   ID_OF_LAST_POKEMON_IN_GENERATION_1,
@@ -36,18 +36,24 @@ const App = () => {
     DEFAULT_SCORE,
   );
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isNewHighScore, setIsNewHighScore] = useState(false);
   const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
+  // TODO: THESE STATES NEED REFACTORING -- WE HAVE WAY TOO MANY...
 
   const updateScores = () => {
     const newScore = currentScore + 1;
     setCurrentScore(newScore);
 
-    if (newScore > highScore) setHighScore(newScore);
+    if (newScore > highScore) {
+      setHighScore(newScore);
+      setIsNewHighScore(true);
+    }
   };
 
   const resetGame = () => {
     setPokemonIdsSelectedThisRound(new Set<number>());
     setCurrentScore(DEFAULT_SCORE);
+    setIsNewHighScore(false);
     setDisplayedPokemonIds(
       getRandomPokemonIds(
         TOTAL_POKEMONS_DISPLAYED,
@@ -71,11 +77,15 @@ const App = () => {
       </main>
 
       <LoadingScreen isVisible={isLoading} />
-      <GameOverModal
-        isVisible={isGameOver}
-        resetGame={resetGame}
-        setIsGameOver={setIsGameOver}
-      />
+
+      {isGameOver && (
+        <EndGameModal
+          isNewHighScore={isNewHighScore}
+          highScore={highScore}
+          resetGame={resetGame}
+          setIsGameOver={setIsGameOver}
+        />
+      )}
     </>
   );
 };

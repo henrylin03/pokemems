@@ -1,0 +1,49 @@
+.backdrop {
+  composes: backdrop from "../EndGameModal.module.css";
+}
+
+.modal {
+  composes: modal from "../EndGameModal.module.css";
+  padding: 2rem;
+}
+
+.heading {
+  composes: heading from "../EndGameModal.module.css";
+}
+
+.img {
+  width: 6rem;
+  animation: tilt 2s infinite alternate ease-in-out;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.copy {
+  composes: copyText from "../EndGameModal.module.css";
+}
+
+.highScore {
+  font-family: var(--game-font);
+  font-size: 2rem;
+  line-height: 0;
+  color: var(--yellow);
+  margin-top: 1rem;
+}
+
+/* ANIMATIONS */
+@keyframes tilt {
+  0% {
+    rotate: none;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  100% {
+    rotate: 20deg;
+  }
+}
