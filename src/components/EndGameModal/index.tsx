@@ -3,11 +3,17 @@ import NewHighScoreModal from "./NewHighScoreModal";
 
 interface Props {
   isNewHighScore: boolean;
+  highScore: number;
   resetGame: () => void;
   setIsGameOver: (isGameOverState: boolean) => void;
 }
 
-const EndGameModal = ({ isNewHighScore, resetGame, setIsGameOver }: Props) => {
+const EndGameModal = ({
+  isNewHighScore,
+  highScore,
+  resetGame,
+  setIsGameOver,
+}: Props) => {
   const handleClickOnPlayAgainButton = () => {
     setIsGameOver(false);
     resetGame();
@@ -16,7 +22,7 @@ const EndGameModal = ({ isNewHighScore, resetGame, setIsGameOver }: Props) => {
   if (isNewHighScore)
     return (
       <NewHighScoreModal
-        newHighScore={3}
+        newHighScore={highScore}
         handleClickOnPlayAgainButton={handleClickOnPlayAgainButton}
       />
     );

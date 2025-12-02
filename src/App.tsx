@@ -36,18 +36,24 @@ const App = () => {
     DEFAULT_SCORE,
   );
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isNewHighScore, setIsNewHighScore] = useState(false);
   const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
+  // TODO: THESE STATES NEED REFACTORING -- WE HAVE WAY TOO MANY...
 
   const updateScores = () => {
     const newScore = currentScore + 1;
     setCurrentScore(newScore);
 
-    if (newScore > highScore) setHighScore(newScore);
+    if (newScore > highScore) {
+      setHighScore(newScore);
+      setIsNewHighScore(true);
+    }
   };
 
   const resetGame = () => {
     setPokemonIdsSelectedThisRound(new Set<number>());
     setCurrentScore(DEFAULT_SCORE);
+    setIsNewHighScore(false);
     setDisplayedPokemonIds(
       getRandomPokemonIds(
         TOTAL_POKEMONS_DISPLAYED,
@@ -72,18 +78,14 @@ const App = () => {
 
       <LoadingScreen isVisible={isLoading} />
 
-      {/* {isGameOver && (
+      {isGameOver && (
         <EndGameModal
-          isNewHighScore
+          isNewHighScore={isNewHighScore}
+          highScore={highScore}
           resetGame={resetGame}
           setIsGameOver={setIsGameOver}
         />
-      )} */}
-      <EndGameModal
-        isNewHighScore
-        resetGame={resetGame}
-        setIsGameOver={setIsGameOver}
-      />
+      )}
     </>
   );
 };
