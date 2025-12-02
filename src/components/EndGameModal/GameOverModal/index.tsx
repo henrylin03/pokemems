@@ -2,14 +2,11 @@ import img from "./sad-psyduck-img.png";
 import styles from "./GameOverModal.module.css";
 
 interface Props {
-  isVisible: boolean;
   resetGame: () => void;
   setIsGameOver: (isGameOverState: boolean) => void;
 }
 
-const GameOverModal = ({ isVisible, resetGame, setIsGameOver }: Props) => {
-  if (!isVisible) return <></>;
-
+const GameOverModal = ({ resetGame, setIsGameOver }: Props) => {
   const handleClickOnButton = () => {
     setIsGameOver(false);
     resetGame();

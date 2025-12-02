@@ -1,9 +1,9 @@
 .backdrop {
-  composes: backdrop from "../../styles/modals.module.css";
+  composes: backdrop from "../../../styles/modals.module.css";
 }
 
 .modal {
-  composes: modal from "../../styles/modals.module.css";
+  composes: modal from "../../../styles/modals.module.css";
   background-color: white;
   display: flex;
   flex-direction: column;

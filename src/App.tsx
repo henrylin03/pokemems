@@ -4,7 +4,7 @@ import { useHighScore } from "./hooks/useHighScore";
 import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
-import GameOverModal from "./components/GameOverModal";
+import EndGameModal from "./components/EndGameModal";
 import {
   TOTAL_POKEMONS_DISPLAYED,
   ID_OF_LAST_POKEMON_IN_GENERATION_1,
@@ -71,11 +71,11 @@ const App = () => {
       </main>
 
       <LoadingScreen isVisible={isLoading} />
-      <GameOverModal
-        isVisible={isGameOver}
-        resetGame={resetGame}
-        setIsGameOver={setIsGameOver}
-      />
+      {/* if gameHasEnded===true -> render <EndGameModal> */}
+
+      {isGameOver && (
+        <EndGameModal resetGame={resetGame} setIsGameOver={setIsGameOver} />
+      )}
     </>
   );
 };
