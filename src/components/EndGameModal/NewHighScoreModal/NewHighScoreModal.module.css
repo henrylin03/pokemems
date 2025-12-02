@@ -18,10 +18,23 @@
   text-align: center;
 }
 
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
 .copy {
   color: var(--grey);
   font-size: large;
-  text-align: center;
+}
+
+.highScore {
+  font-family: var(--game-font);
+  font-size: 2rem;
+  line-height: 0;
+  color: var(--yellow);
 }
 
 .button {

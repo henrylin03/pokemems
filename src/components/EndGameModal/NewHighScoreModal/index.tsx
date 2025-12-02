@@ -1,6 +1,10 @@
 import styles from "./NewHighScoreModal.module.css";
 
-const NewHighScoreModal = () => {
+interface Props {
+  newHighScore: number;
+}
+
+const NewHighScoreModal = ({ newHighScore }: Props) => {
   return (
     <div className={styles.backdrop}>
       <article className={styles.modal}>
@@ -11,9 +15,12 @@ const NewHighScoreModal = () => {
           alt="Sad Psyduck"
           loading="lazy"
         /> */}
-        <p className={styles.copy}>
-          You selected a Pokémon that you've already selected before
-        </p>
+        <div className={styles.textContainer}>
+          <p className={styles.copy}>
+            Congratulations! You've set a new high score of
+          </p>
+          <p className={styles.highScore}>3</p>
+        </div>
         <button type="button" className={styles.button}>
           Play again
         </button>
