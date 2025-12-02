@@ -1,3 +1,4 @@
+import img from "./sad-psyduck-img.png";
 import styles from "./GameOverModal.module.css";
 
 interface Props {
@@ -11,7 +12,12 @@ const GameOverModal = ({ isVisible }: Props) => {
     <div className={styles.backdrop}>
       <article className={styles.modal}>
         <h1 className={styles.heading}>game over</h1>
-        <img className={styles.img} alt="Sad shroomish" />
+        <img
+          src={img}
+          className={styles.img}
+          alt="Sad shroomish"
+          loading="lazy"
+        />
         <p className={styles.copy}>
           You selected a Pokémon that you've already selected before
         </p>
