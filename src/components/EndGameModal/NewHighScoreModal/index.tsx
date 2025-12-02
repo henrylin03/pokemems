@@ -1,10 +1,15 @@
+import PlayAgainButton from "../PlayAgainButton";
 import styles from "./NewHighScoreModal.module.css";
 
 interface Props {
   newHighScore: number;
+  handleClickOnPlayAgainButton: () => void;
 }
 
-const NewHighScoreModal = ({ newHighScore }: Props) => {
+const NewHighScoreModal = ({
+  newHighScore,
+  handleClickOnPlayAgainButton,
+}: Props) => {
   return (
     <div className={styles.backdrop}>
       <article className={styles.modal}>
@@ -19,11 +24,9 @@ const NewHighScoreModal = ({ newHighScore }: Props) => {
           <p className={styles.copy}>
             Congratulations! You've set a new high score of
           </p>
-          <p className={styles.highScore}>3</p>
+          <p className={styles.highScore}>{newHighScore}</p>
         </div>
-        <button type="button" className={styles.button}>
-          Play again
-        </button>
+        <PlayAgainButton onClick={handleClickOnPlayAgainButton} />
       </article>
     </div>
   );

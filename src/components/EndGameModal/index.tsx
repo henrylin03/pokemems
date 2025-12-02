@@ -8,8 +8,24 @@ interface Props {
 }
 
 const EndGameModal = ({ isNewHighScore, resetGame, setIsGameOver }: Props) => {
-  if (isNewHighScore) return <NewHighScoreModal newHighScore={3} />;
-  return <GameOverModal resetGame={resetGame} setIsGameOver={setIsGameOver} />;
+  const handleClickOnPlayAgainButton = () => {
+    setIsGameOver(false);
+    resetGame();
+  };
+
+  if (isNewHighScore)
+    return (
+      <NewHighScoreModal
+        newHighScore={3}
+        handleClickOnPlayAgainButton={handleClickOnPlayAgainButton}
+      />
+    );
+
+  return (
+    <GameOverModal
+      handleClickOnPlayAgainButton={handleClickOnPlayAgainButton}
+    />
+  );
 };
 
 export default EndGameModal;

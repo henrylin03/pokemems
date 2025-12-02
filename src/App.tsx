@@ -71,7 +71,6 @@ const App = () => {
       </main>
 
       <LoadingScreen isVisible={isLoading} />
-      {/* if gameHasEnded===true -> render <EndGameModal> */}
 
       {isGameOver && (
         <EndGameModal
