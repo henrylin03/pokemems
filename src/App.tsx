@@ -55,7 +55,6 @@ const App = () => {
     );
   };
 
-  // ? can i use suspense here?
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore} />
@@ -75,7 +74,7 @@ const App = () => {
       {/* modals */}
       <LoadingScreen isVisible={isLoading} />
       <GameOverModal
-        isVisible={isGameOver}
+        isVisible={true}
         resetGame={resetGame}
         setIsGameOver={setIsGameOver}
       />
