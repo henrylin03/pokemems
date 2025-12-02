@@ -71,10 +71,9 @@ const App = () => {
         />
       </main>
 
-      {/* modals */}
       <LoadingScreen isVisible={isLoading} />
       <GameOverModal
-        isVisible={true}
+        isVisible={isGameOver}
         resetGame={resetGame}
         setIsGameOver={setIsGameOver}
       />
