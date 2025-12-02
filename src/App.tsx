@@ -74,7 +74,11 @@ const App = () => {
       {/* if gameHasEnded===true -> render <EndGameModal> */}
 
       {isGameOver && (
-        <EndGameModal resetGame={resetGame} setIsGameOver={setIsGameOver} />
+        <EndGameModal
+          isNewHighScore
+          resetGame={resetGame}
+          setIsGameOver={setIsGameOver}
+        />
       )}
     </>
   );
