@@ -1,21 +1,13 @@
 .backdrop {
-  composes: backdrop from "../../../styles/modals.module.css";
+  composes: backdrop from "../EndGameModal.module.css";
 }
 
 .modal {
-  composes: modal from "../../../styles/modals.module.css";
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  composes: modal from "../EndGameModal.module.css";
 }
 
 .heading {
-  color: var(--dark-purple);
-  font-family: var(--game-font);
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  text-align: center;
+  composes: heading from "../EndGameModal.module.css";
 }
 
 .img {
@@ -23,8 +15,7 @@
 }
 
 .copy {
-  color: var(--grey);
-  font-size: large;
+  composes: copyText from "../EndGameModal.module.css";
   text-align: center;
 }
 
