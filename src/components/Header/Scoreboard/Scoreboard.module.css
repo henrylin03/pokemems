@@ -10,10 +10,8 @@
 }
 
 .scoreItem {
-  padding: 0 !important;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
 }
 
 .label {
@@ -36,24 +34,11 @@
   .text {
     font-size: 10px;
   }
-
-  .scoreItem {
-    gap: 0.5rem;
-  }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 579px) {
   .scoreItem {
-    gap: 0.1rem;
-  }
-}
-
-@media (max-width: 444px) {
-  .text {
-    font-size: 8px;
-  }
-
-  .scoreItem {
-    gap: 0.05rem;
+    display: flex;
+    justify-content: space-between;
   }
 }

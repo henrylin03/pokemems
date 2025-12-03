@@ -1,11 +1,11 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 2rem;
 }
 
 .left {
+  flex: 1;
   transform: translateY(15%);
 }
 
@@ -49,7 +49,6 @@
 
 @media (max-width: 499px) {
   .header {
-    grid-template-columns: 1.5fr 1fr;
     gap: 0.5rem;
   }
 
@@ -64,14 +63,11 @@
 
 @media (max-width: 409px) {
   .header {
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
   .heading {
-    font-size: 16px;
-  }
-
-  .subtext {
-    font-size: 8px;
+    font-size: 20px;
   }
 }
