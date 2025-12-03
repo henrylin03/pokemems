@@ -5,13 +5,14 @@
   --dark-purple: #330066;
   --lilac: hsl(242, 100%, 85%);
   --yellow: #f7b801;
-  --grey: #666;
+  --grey: #666666;
 
   --game-font: "Press Start 2P", system-ui;
+  --sans-serif-font: "DM Sans", Arial, Helvetica, sans-serif, system-ui;
 }
 
 * {
-  font-family: "DM Sans", Arial, Helvetica, sans-serif, system-ui;
+  font-family: var(--sans-serif-font);
 }
 
 body {

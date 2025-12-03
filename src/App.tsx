@@ -14,6 +14,7 @@ import {
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
+import ErrorModal from "./components/ErrorModal";
 
 export interface Pokemon {
   id: number;
@@ -37,8 +38,9 @@ const App = () => {
   );
   const [isGameOver, setIsGameOver] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
-  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
-  // TODO: THESE STATES NEED REFACTORING -- WE HAVE WAY TOO MANY...
+  const { pokemons, isLoading, error } = useAllPokemons(displayedPokemonIds);
+
+  return <ErrorModal error={error ?? ""} />;
 
   const updateScores = () => {
     const newScore = currentScore + 1;
