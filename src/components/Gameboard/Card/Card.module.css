@@ -19,7 +19,7 @@
 }
 
 .pokemonImageWrapper {
-  width: 50%;
+  width: 75%;
   margin: auto;
 }
 
@@ -34,4 +34,27 @@
   color: var(--purple);
   text-transform: uppercase;
   font-size: 16px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1439px) {
+  .pokemonName {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1229px) {
+  .pokemonImageWrapper {
+    width: 100%;
+  }
+
+  .pokemonName {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 999px) {
+  .inner {
+    padding: 1.5rem 0;
+  }
 }
