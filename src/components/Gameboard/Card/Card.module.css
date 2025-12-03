@@ -74,9 +74,9 @@
   }
 }
 
-@media (max-width: 599px) {
-  .card {
-    width: 132px;
+@media (max-width: 699px) {
+  .inner {
+    gap: 0;
   }
 
   .pokemonName {
@@ -84,13 +84,15 @@
   }
 }
 
+@media (max-width: 599px) {
+  .card {
+    width: 132px;
+  }
+}
+
 @media (max-width: 489px) {
   .card {
     width: 112px;
-  }
-
-  .inner {
-    gap: 0;
   }
 
   .pokemonImageWrapper {
@@ -100,17 +102,11 @@
 
 @media (max-width: 399px) {
   .card {
-    width: 100px;
+    width: 120px;
   }
 
   .inner {
     padding: 0.25rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .card {
-    width: 120px;
   }
 
   .pokemonImageWrapper {

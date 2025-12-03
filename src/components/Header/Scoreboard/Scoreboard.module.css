@@ -2,6 +2,13 @@
   list-style: none;
 }
 
+.text {
+  font-family: var(--game-font);
+  color: var(--yellow);
+  font-size: medium;
+  line-height: 0;
+}
+
 .scoreItem {
   padding: 0 !important;
   display: flex;
@@ -9,14 +16,44 @@
   gap: 2rem;
 }
 
-.label,
-.score {
-  font-family: var(--game-font);
-  color: var(--yellow);
-  font-size: medium;
-  line-height: 0;
+.label {
+  composes: text;
 }
 
 .score {
+  composes: text;
   justify-self: end;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 846px) {
+  .text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 699px) {
+  .text {
+    font-size: 10px;
+  }
+
+  .scoreItem {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 499px) {
+  .scoreItem {
+    gap: 0.1rem;
+  }
+}
+
+@media (max-width: 444px) {
+  .text {
+    font-size: 8px;
+  }
+
+  .scoreItem {
+    gap: 0.05rem;
+  }
 }
