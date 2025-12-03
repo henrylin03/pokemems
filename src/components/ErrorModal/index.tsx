@@ -1,3 +1,4 @@
+import Button from "../ui/Button";
 import styles from "./ErrorModal.module.css";
 
 interface Props {
@@ -13,6 +14,18 @@ const ErrorModal = ({ error }: Props) => (
         There's been an issue retrieving the Pokémons.
         <br /> Please check your internet connection and try again.
       </p>
+      <ul className={styles.buttons}>
+        <li>
+          <Button onClick={() => {}} className={styles.button}>
+            Try again
+          </Button>
+        </li>
+        <li>
+          <Button onClick={() => {}} className={styles.button}>
+            Report issue
+          </Button>
+        </li>
+      </ul>
     </article>
   </div>
 );
