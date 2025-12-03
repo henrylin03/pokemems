@@ -19,8 +19,8 @@ body {
   background: #3d308b;
   background: linear-gradient(
     160deg,
-    rgba(61, 48, 139, 1) 0%,
-    rgba(51, 0, 102, 1) 100%
+    hsl(249, 49%, 40%) 0%,
+    hsl(270, 100%, 20%) 100%
   );
 }
 
