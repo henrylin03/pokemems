@@ -1,7 +1,6 @@
 .section {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -15,5 +14,14 @@
 @media (max-width: 845px) {
   .section {
     gap: 0.5rem;
+  }
+}
+
+/* grid collapse */
+@media (max-width: 799px) {
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

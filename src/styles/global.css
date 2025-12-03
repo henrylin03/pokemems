@@ -36,3 +36,11 @@ body {
 h1 {
   font-family: var(--game-font);
 }
+
+/* MEDIA QUERIES */
+/* grid collapse */
+@media (max-width: 799px) {
+  #root {
+    transform: translateY(0);
+  }
+}

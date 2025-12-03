@@ -58,3 +58,28 @@
     padding: 1.5rem 0;
   }
 }
+
+/* grid collapse */
+@media (max-width: 799px) {
+  .card {
+    width: 160px;
+  }
+
+  .inner {
+    padding: 0;
+  }
+
+  .pokemonImageWrapper {
+    width: 75%;
+  }
+}
+
+@media (max-width: 599px) {
+  .card {
+    width: 140px;
+  }
+
+  .pokemonName {
+    font-size: 8px;
+  }
+}
