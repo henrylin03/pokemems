@@ -15,7 +15,9 @@
 }
 
 body {
+  position: relative;
   height: 100vh;
+  width: 100vw;
   background: #3d308b;
   background: linear-gradient(
     160deg,
@@ -25,10 +27,10 @@ body {
 }
 
 #root {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  transform: translateY(6%);
 }
 
 h1 {
