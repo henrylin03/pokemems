@@ -113,3 +113,15 @@
     width: 80%;
   }
 }
+
+/* two-columns enforced */
+@media (max-width: 399px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .pokemonImageWrapper {
+    width: 50%;
+  }
+}
