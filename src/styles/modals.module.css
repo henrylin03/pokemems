@@ -11,7 +11,14 @@
 .modal {
   margin: auto;
   min-height: 50%;
-  width: 50%;
+  width: max(50%, 25rem);
   border-radius: 1rem;
   place-content: center;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 499px) {
+  .modal {
+    width: 90%;
+  }
 }

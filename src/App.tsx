@@ -76,7 +76,8 @@ const App = () => {
         />
       </main>
 
-      {isLoading && <LoadingScreen />}
+      {/* {isLoading && <LoadingScreen />} */}
+      <LoadingScreen />
 
       {isGameOver && (
         <EndGameModal
