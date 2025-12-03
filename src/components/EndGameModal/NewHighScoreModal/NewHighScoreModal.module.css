@@ -47,3 +47,16 @@
     rotate: 20deg;
   }
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 499px) {
+  .highScore {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 399px) {
+  .modal {
+    padding: 0.5rem 1rem;
+  }
+}

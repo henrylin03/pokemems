@@ -20,5 +20,19 @@
 
 .copyText {
   color: var(--grey);
-  font-size: large;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 779px) {
+  .copyText {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 499px) {
+  .heading {
+    font-size: 1.25rem;
+  }
 }

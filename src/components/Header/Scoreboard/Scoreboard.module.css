@@ -1,0 +1,45 @@
+.scores {
+  list-style: none;
+}
+
+.text {
+  font-family: var(--game-font);
+  color: var(--yellow);
+  font-size: medium;
+  line-height: 0;
+}
+
+.scoreItem {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 0.5rem;
+}
+
+.label {
+  composes: text;
+}
+
+.score {
+  composes: text;
+  justify-self: end;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 846px) {
+  .text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 699px) {
+  .text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 579px) {
+  .scoreItem {
+    display: flex;
+    justify-content: space-between;
+  }
+}
