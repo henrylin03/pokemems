@@ -40,13 +40,6 @@
   }
 }
 
-@media (max-width: 599px) {
-  .header {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
 @media (max-width: 499px) {
   .header {
     gap: 0.5rem;
@@ -61,12 +54,7 @@
   }
 }
 
-@media (max-width: 409px) {
-  .header {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
+@media (max-width: 379px) {
   .heading {
     font-size: 20px;
   }

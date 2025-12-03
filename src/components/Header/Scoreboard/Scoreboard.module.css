@@ -12,6 +12,7 @@
 .scoreItem {
   display: grid;
   grid-template-columns: 1fr 0.5fr;
+  gap: 0.5rem;
 }
 
 .label {
