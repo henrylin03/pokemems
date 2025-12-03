@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  transform: translateY(10%);
+  transform: translateY(6%);
 }
 
 h1 {
@@ -38,9 +38,8 @@ h1 {
 }
 
 /* MEDIA QUERIES */
-/* grid collapse */
-@media (max-width: 799px) {
+@media (max-width: 759px) {
   #root {
-    transform: translateY(0);
+    transform: translateY(2%);
   }
 }

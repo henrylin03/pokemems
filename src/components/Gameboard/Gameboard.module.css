@@ -25,3 +25,9 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 599px) {
+  .section {
+    gap: 0.33rem;
+  }
+}

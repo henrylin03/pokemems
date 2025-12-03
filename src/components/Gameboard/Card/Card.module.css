@@ -19,7 +19,7 @@
 }
 
 .pokemonImageWrapper {
-  width: 75%;
+  width: 66%;
   margin: auto;
 }
 
@@ -76,10 +76,44 @@
 
 @media (max-width: 599px) {
   .card {
-    width: 140px;
+    width: 132px;
   }
 
   .pokemonName {
     font-size: 8px;
+  }
+}
+
+@media (max-width: 489px) {
+  .card {
+    width: 112px;
+  }
+
+  .inner {
+    gap: 0;
+  }
+
+  .pokemonImageWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 399px) {
+  .card {
+    width: 100px;
+  }
+
+  .inner {
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 120px;
+  }
+
+  .pokemonImageWrapper {
+    width: 80%;
   }
 }
