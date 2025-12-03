@@ -15,7 +15,6 @@
 }
 
 body {
-  height: 100dvh;
   background: #3d308b;
   background: linear-gradient(
     160deg,
@@ -26,9 +25,12 @@ body {
 }
 
 #root {
+  height: 100dvh;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  transform: translateY(10%);
 }
 
 h1 {
