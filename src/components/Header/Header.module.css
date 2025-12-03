@@ -36,15 +36,11 @@
 
 @media (max-width: 679px) {
   .header {
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 499px) {
-  .header {
-    gap: 0.5rem;
-  }
-
   .heading {
     font-size: 24px;
   }
