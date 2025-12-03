@@ -17,10 +17,12 @@ const Card = ({ pokemon, onMouseDown }: Props) => {
       className={styles.card}
       aria-label={name}
     >
-      <figure className={styles.pokemonImageWrapper}>
-        <img src={imageUrl} alt={name} className={styles.pokemonImage} />
-      </figure>
-      <p className={styles.pokemonName}>{name}</p>
+      <div className={styles.inner}>
+        <figure className={styles.pokemonImageWrapper}>
+          <img src={imageUrl} alt={name} className={styles.pokemonImage} />
+        </figure>
+        <p className={styles.pokemonName}>{name}</p>
+      </div>
     </button>
   );
 };
