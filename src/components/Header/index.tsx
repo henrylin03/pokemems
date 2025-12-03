@@ -1,4 +1,4 @@
-import Scoreboard from "../Scoreboard";
+import Scoreboard from "./Scoreboard";
 import styles from "./Header.module.css";
 
 interface Props {
