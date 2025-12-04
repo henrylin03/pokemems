@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
 import EndGameModal from "./components/EndGameModal";
+import ErrorModal from "./components/ErrorModal";
 import {
   TOTAL_POKEMONS_DISPLAYED,
   ID_OF_LAST_POKEMON_IN_GENERATION_1,
@@ -14,7 +15,6 @@ import {
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
-import ErrorModal from "./components/ErrorModal";
 
 export interface Pokemon {
   id: number;
@@ -40,7 +40,16 @@ const App = () => {
   const [isNewHighScore, setIsNewHighScore] = useState(false);
   const { pokemons, isLoading, error } = useAllPokemons(displayedPokemonIds);
 
-  return <ErrorModal error={error ?? ""} />;
+  const retryFetch = () => {
+    setDisplayedPokemonIds(
+      getRandomPokemonIds(
+        TOTAL_POKEMONS_DISPLAYED,
+        ID_OF_LAST_POKEMON_IN_GENERATION_1,
+      ),
+    );
+  };
+
+  if (error) return <ErrorModal errorMessage={error} retryFetch={retryFetch} />;
 
   const updateScores = () => {
     const newScore = currentScore + 1;

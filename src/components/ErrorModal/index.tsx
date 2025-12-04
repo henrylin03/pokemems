@@ -3,14 +3,15 @@ import img from "./confused-psyduck.png";
 import styles from "./ErrorModal.module.css";
 
 interface Props {
-  error: string;
+  errorMessage: string;
+  retryFetch: () => void;
 }
 
-const ErrorModal = ({ error }: Props) => {
+const ErrorModal = ({ errorMessage, retryFetch }: Props) => {
   const LINK_TO_NEW_GITHUB_ISSUE =
     "https://github.com/henrylin03/pokemems/issues/new?template=report-a-bug.md";
 
-  console.error(error);
+  console.error(errorMessage);
 
   return (
     <div className={styles.backdrop}>
@@ -30,7 +31,7 @@ const ErrorModal = ({ error }: Props) => {
         </div>
         <ul className={styles.buttons}>
           <li>
-            <Button onClick={() => {}} className={styles.button}>
+            <Button onClick={retryFetch} className={styles.button}>
               Try again
             </Button>
           </li>
