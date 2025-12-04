@@ -11,12 +11,18 @@
   align-items: center;
 }
 
+.img {
+  margin-bottom: 1rem;
+  width: max(25%, 240px);
+}
+
 .heading {
   color: black;
   font-family: var(--sans-serif-font);
   text-align: center;
   font-size: 32px;
-  line-height: calc(32px * 1.2);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
 }
 
 .copy {
