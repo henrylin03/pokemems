@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
 import EndGameModal from "./components/EndGameModal";
+import ErrorModal from "./components/ErrorModal";
 import {
   TOTAL_POKEMONS_DISPLAYED,
   ID_OF_LAST_POKEMON_IN_GENERATION_1,
@@ -37,8 +38,10 @@ const App = () => {
   );
   const [isGameOver, setIsGameOver] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
-  const { pokemons, isLoading } = useAllPokemons(displayedPokemonIds);
-  // TODO: THESE STATES NEED REFACTORING -- WE HAVE WAY TOO MANY...
+  const { pokemons, isLoading, error, retryFetch } =
+    useAllPokemons(displayedPokemonIds);
+
+  if (error) return <ErrorModal errorMessage={error} retryFetch={retryFetch} />;
 
   const updateScores = () => {
     const newScore = currentScore + 1;
