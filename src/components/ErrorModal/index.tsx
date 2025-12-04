@@ -7,6 +7,9 @@ interface Props {
 }
 
 const ErrorModal = ({ error }: Props) => {
+  const LINK_TO_NEW_GITHUB_ISSUE =
+    "https://github.com/henrylin03/pokemems/issues/new?template=report-a-bug.md";
+
   console.error(error);
 
   return (
@@ -32,9 +35,14 @@ const ErrorModal = ({ error }: Props) => {
             </Button>
           </li>
           <li>
-            <Button onClick={() => {}} className={styles.button}>
-              Report issue
-            </Button>
+            <a
+              href={LINK_TO_NEW_GITHUB_ISSUE}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Report issue on GitHub"
+            >
+              <Button className={styles.button}>Report issue</Button>
+            </a>
           </li>
         </ul>
       </article>
