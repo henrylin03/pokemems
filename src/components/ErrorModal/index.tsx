@@ -4,7 +4,7 @@ import styles from "./ErrorModal.module.css";
 
 interface Props {
   errorMessage: string;
-  retryFetch: () => void;
+  retryFetch: () => Promise<void>;
 }
 
 const ErrorModal = ({ errorMessage, retryFetch }: Props) => {

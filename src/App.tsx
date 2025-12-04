@@ -38,16 +38,8 @@ const App = () => {
   );
   const [isGameOver, setIsGameOver] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
-  const { pokemons, isLoading, error } = useAllPokemons(displayedPokemonIds);
-
-  const retryFetch = () => {
-    setDisplayedPokemonIds(
-      getRandomPokemonIds(
-        TOTAL_POKEMONS_DISPLAYED,
-        ID_OF_LAST_POKEMON_IN_GENERATION_1,
-      ),
-    );
-  };
+  const { pokemons, isLoading, error, retryFetch } =
+    useAllPokemons(displayedPokemonIds);
 
   if (error) return <ErrorModal errorMessage={error} retryFetch={retryFetch} />;
 
