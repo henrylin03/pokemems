@@ -1,4 +1,5 @@
 import Button from "../ui/Button";
+import img from "./confused-psyduck.png";
 import styles from "./ErrorModal.module.css";
 
 interface Props {
@@ -8,7 +9,12 @@ interface Props {
 const ErrorModal = ({ error }: Props) => (
   <div className={styles.backdrop}>
     <article className={styles.modal}>
-      {/* <img src={img} className={styles.img} alt="Sad Psyduck" loading="lazy" /> */}
+      <img
+        src={img}
+        className={styles.img}
+        alt="Confused Psyduck"
+        loading="lazy"
+      />
       <h1 className={styles.heading}>Uh oh!</h1>
       <p className={styles.copy}>
         There's been an issue retrieving the Pokémons.
