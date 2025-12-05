@@ -1,11 +1,11 @@
 import Card from "./Card";
 import type { Pokemon } from "../../App";
-import styles from "./Gameboard.module.css";
 import {
   ID_OF_LAST_POKEMON_IN_GENERATION_1,
   TOTAL_POKEMONS_DISPLAYED,
 } from "../../constants";
 import { getRandomPokemonIds } from "../../helpers";
+import styles from "./Gameboard.module.css";
 
 interface Props {
   pokemons: Pokemon[];
@@ -26,7 +26,7 @@ const Gameboard = ({
   setPokemonIdsSelectedThisRound,
   setIsGameOver,
 }: Props) => {
-  const handleMousedownOnCard = (pokemonId: number) => {
+  const selectPokemon = (pokemonId: number) => {
     if (pokemonIdsSelectedThisRound.has(pokemonId)) {
       setIsGameOver(true);
       return;
@@ -41,7 +41,16 @@ const Gameboard = ({
       TOTAL_POKEMONS_DISPLAYED,
       ID_OF_LAST_POKEMON_IN_GENERATION_1,
     );
+
     setDisplayedPokemonsIds(newDisplayedPokemonsIds);
+  };
+
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    pokemonId: number,
+  ) => {
+    if (!(event.key === "Enter")) return;
+    selectPokemon(pokemonId);
   };
 
   return (
@@ -51,7 +60,10 @@ const Gameboard = ({
           key={pokemon.id}
           pokemon={pokemon}
           onMouseDown={() => {
-            handleMousedownOnCard(pokemon.id);
+            selectPokemon(pokemon.id);
+          }}
+          onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
+            handleKeyDown(event, pokemon.id);
           }}
         />
       ))}
