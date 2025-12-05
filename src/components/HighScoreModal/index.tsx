@@ -1,5 +1,5 @@
 import Modal from "../ui/Modal";
-import PlayAgainButton from "../EndGameModal/PlayAgainButton";
+import PlayAgainButton from "../PlayAgainButton";
 import img from "./ribbon-img.png";
 import styles from "./HighScoreModal.module.css";
 

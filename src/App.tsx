@@ -4,7 +4,8 @@ import { useHighScore } from "./hooks/useHighScore";
 import Header from "./components/Header";
 import Gameboard from "./components/Gameboard";
 import LoadingScreen from "./components/LoadingScreen";
-import EndGameModal from "./components/EndGameModal";
+import GameOverModal from "./components/GameOverModal";
+import HighScoreModal from "./components/HighScoreModal";
 import ErrorModal from "./components/ErrorModal";
 import {
   TOTAL_POKEMONS_DISPLAYED,
@@ -15,8 +16,6 @@ import {
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
-import GameOverModal from "./components/GameOverModal";
-import HighScoreModal from "./components/HighScoreModal";
 
 export interface Pokemon {
   id: number;
@@ -85,17 +84,10 @@ const App = () => {
 
       {isLoading && <LoadingScreen />}
 
-      {/* {isGameOver && (
-        <EndGameModal
-          isNewHighScore={isNewHighScore}
-          highScore={highScore}
-          resetGame={resetGame}
-          setIsGameOver={setIsGameOver}
-        />
-      )} */}
-
-      {/* KEEP THIS: */}
-      {/* <GameOverModal shouldShow={isGameOver} resetGame={resetGame} /> */}
+      <GameOverModal
+        shouldShow={isGameOver && !isNewHighScore}
+        resetGame={resetGame}
+      />
 
       <HighScoreModal
         shouldShow={isGameOver && isNewHighScore}

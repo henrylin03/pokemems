@@ -1,5 +1,5 @@
 import Modal from "../ui/Modal";
-import PlayAgainButton from "../EndGameModal/PlayAgainButton";
+import PlayAgainButton from "../PlayAgainButton";
 import img from "./sad-psyduck-img.png";
 import styles from "./GameOverModal.module.css";
 
