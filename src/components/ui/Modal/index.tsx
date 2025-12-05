@@ -3,10 +3,11 @@ import styles from "./Modal.module.css";
 
 interface Props {
   shouldShow: boolean;
+  className?: string;
   children: React.ReactNode;
 }
 
-const Modal = ({ shouldShow, children }: Props) => {
+const Modal = ({ shouldShow, className = "", children }: Props) => {
   const ref = useRef<HTMLDialogElement>(null);
 
   useLayoutEffect(() => {
@@ -15,7 +16,10 @@ const Modal = ({ shouldShow, children }: Props) => {
   }, [shouldShow]);
 
   return (
-    <dialog ref={ref} className={styles.modal}>
+    <dialog
+      ref={ref}
+      className={className ? `${className} ${styles.modal}` : styles.modal}
+    >
       {children}
     </dialog>
   );

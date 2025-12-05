@@ -9,13 +9,15 @@ interface Props {
 }
 
 const GameOverModal = ({ shouldShow, resetGame }: Props) => (
-  <Modal shouldShow={shouldShow}>
-    <h1 className={styles.heading}>game over</h1>
-    <img src={img} className={styles.img} alt="Sad Psyduck" loading="lazy" />
-    <p className={styles.copy}>
-      You selected a Pokémon that you've already selected before
-    </p>
-    <PlayAgainButton onClick={resetGame} />
+  <Modal shouldShow={shouldShow} className={styles.modal}>
+    <div className={styles.inner}>
+      <h1 className={styles.heading}>game over</h1>
+      <img src={img} className={styles.img} alt="Sad Psyduck" loading="lazy" />
+      <p className={styles.copy}>
+        You selected a Pokémon that you've already selected before
+      </p>
+      <PlayAgainButton onClick={resetGame} />
+    </div>
   </Modal>
 );
 
