@@ -1,10 +1,8 @@
 import Button from "../ui/Button";
 import Modal from "../ui/Modal";
 import img from "./confused-psyduck.png";
-// import styles from "./ErrorModal.module.css";
 
 interface Props {
-  shouldShow: boolean;
   errorMessage: string;
   retryFetch: () => Promise<void>;
 }
@@ -12,10 +10,10 @@ interface Props {
 const LINK_TO_NEW_GITHUB_ISSUE =
   "https://github.com/henrylin03/pokemems/issues/new?template=report-a-bug.md";
 
-const ErrorModal = ({ shouldShow, errorMessage, retryFetch }: Props) => {
+const ErrorModal = ({ errorMessage, retryFetch }: Props) => {
   console.error("Error:", errorMessage);
   return (
-    <Modal shouldShow={shouldShow}>
+    <Modal shouldShow={Boolean(errorMessage)}>
       <img src={img} alt="Confused Psyduck" loading="lazy" />
       <div>
         <h1>Uh oh!</h1>
@@ -26,6 +24,7 @@ const ErrorModal = ({ shouldShow, errorMessage, retryFetch }: Props) => {
       </div>
       <ul>
         <li>
+          {/* TODO: fix type error here */}
           <Button onClick={retryFetch}>Try again</Button>
         </li>
         <li>
