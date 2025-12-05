@@ -4,6 +4,7 @@
   width: max(50%, 25rem);
   border-radius: 1rem;
   place-content: center;
+  border: none;
 }
 
 ::backdrop {

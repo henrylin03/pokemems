@@ -82,7 +82,7 @@ const App = () => {
         />
       </main>
 
-      {isLoading && <LoadingScreen />}
+      <LoadingScreen shouldShow={isLoading} />
 
       <GameOverModal
         shouldShow={isGameOver && !isNewHighScore}
