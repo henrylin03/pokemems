@@ -15,7 +15,7 @@ import {
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
-import Modal from "./components/ui/Modal";
+import GameOverModal from "./components/GameOverModal";
 
 export interface Pokemon {
   id: number;
@@ -55,9 +55,11 @@ const App = () => {
   };
 
   const resetGame = () => {
-    setPokemonIdsSelectedThisRound(new Set<number>());
-    setCurrentScore(DEFAULT_SCORE);
+    setIsGameOver(false);
     setIsNewHighScore(false);
+    setCurrentScore(DEFAULT_SCORE);
+
+    setPokemonIdsSelectedThisRound(new Set<number>());
     setDisplayedPokemonIds(
       getRandomPokemonIds(
         TOTAL_POKEMONS_DISPLAYED,
@@ -90,7 +92,7 @@ const App = () => {
           setIsGameOver={setIsGameOver}
         />
       )} */}
-      <Modal shouldShow={isGameOver} />
+      <GameOverModal shouldShow={isGameOver} resetGame={resetGame} />
     </>
   );
 };

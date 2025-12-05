@@ -1,11 +1,12 @@
-import { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styles from "./Modal.module.css";
 
 interface Props {
   shouldShow: boolean;
+  children: React.ReactNode;
 }
 
-const Modal = ({ shouldShow }: Props) => {
+const Modal = ({ shouldShow, children }: Props) => {
   const ref = useRef<HTMLDialogElement>(null);
 
   useLayoutEffect(() => {
@@ -15,7 +16,7 @@ const Modal = ({ shouldShow }: Props) => {
 
   return (
     <dialog ref={ref} className={styles.modal}>
-      test
+      {children}
     </dialog>
   );
 };
