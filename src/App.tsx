@@ -16,6 +16,7 @@ import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
 import GameOverModal from "./components/GameOverModal";
+import HighScoreModal from "./components/HighScoreModal";
 
 export interface Pokemon {
   id: number;
@@ -92,7 +93,15 @@ const App = () => {
           setIsGameOver={setIsGameOver}
         />
       )} */}
-      <GameOverModal shouldShow={isGameOver} resetGame={resetGame} />
+
+      {/* KEEP THIS: */}
+      {/* <GameOverModal shouldShow={isGameOver} resetGame={resetGame} /> */}
+
+      <HighScoreModal
+        shouldShow={isGameOver && isNewHighScore}
+        highScore={highScore}
+        resetGame={resetGame}
+      />
     </>
   );
 };
