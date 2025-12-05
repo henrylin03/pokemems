@@ -15,6 +15,7 @@ import {
 import { getRandomPokemonIds } from "./helpers";
 import "./styles/reset.css";
 import "./styles/global.css";
+import Modal from "./components/ui/Modal";
 
 export interface Pokemon {
   id: number;
@@ -81,14 +82,15 @@ const App = () => {
 
       {isLoading && <LoadingScreen />}
 
-      {isGameOver && (
+      {/* {isGameOver && (
         <EndGameModal
           isNewHighScore={isNewHighScore}
           highScore={highScore}
           resetGame={resetGame}
           setIsGameOver={setIsGameOver}
         />
-      )}
+      )} */}
+      <Modal shouldShow={isGameOver} />
     </>
   );
 };
