@@ -1,10 +1,8 @@
-.backdrop {
-  composes: backdrop from "../../styles/modals.module.css";
+.modal {
+  background-color: white;
 }
 
-.modal {
-  composes: modal from "../../styles/modals.module.css";
-  background-color: white;
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,21 +16,23 @@
   text-align: center;
 }
 
-.copyText {
+.img {
+  animation: float 2s linear infinite;
+}
+
+.copy {
   color: var(--grey);
   font-size: 20px;
   text-align: center;
 }
 
-/* MEDIA QUERIES */
-@media (max-width: 779px) {
-  .copyText {
-    font-size: 16px;
+/* ANIMATIONS */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0);
   }
-}
-
-@media (max-width: 499px) {
-  .heading {
-    font-size: 1.25rem;
+  50% {
+    transform: translateY(-12px);
   }
 }
