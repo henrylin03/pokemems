@@ -1,19 +1,14 @@
-.backdrop {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100dvw;
-  height: 100dvh;
-  background-color: rgba(0, 0, 0, 0.7);
-  place-content: center;
-}
-
 .modal {
   margin: auto;
   min-height: 50%;
   width: max(50%, 25rem);
   border-radius: 1rem;
   place-content: center;
+  border: none;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* MEDIA QUERIES */

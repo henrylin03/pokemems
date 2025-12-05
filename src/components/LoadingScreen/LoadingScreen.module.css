@@ -1,9 +1,4 @@
-.backdrop {
-  composes: backdrop from "../../styles/modals.module.css";
-}
-
 .card {
-  composes: modal from "../../styles/modals.module.css";
   background-color: var(--lilac);
 }
 
