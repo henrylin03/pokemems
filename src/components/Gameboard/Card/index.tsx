@@ -4,15 +4,22 @@ import styles from "./Card.module.css";
 interface Props {
   pokemon: Pokemon;
   onMouseDown: (pokemonId: number) => void;
+  onKeyDown: (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    pokemonId: number,
+  ) => void;
 }
 
-const Card = ({ pokemon, onMouseDown }: Props) => {
+const Card = ({ pokemon, onMouseDown, onKeyDown }: Props) => {
   const { id, name, imageUrl } = pokemon;
 
   return (
     <button
       onMouseDown={() => {
         onMouseDown(id);
+      }}
+      onKeyDown={(e) => {
+        onKeyDown(e, id);
       }}
       className={styles.card}
       aria-label={name}
