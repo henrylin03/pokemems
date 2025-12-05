@@ -1,5 +1,5 @@
-import { describe, expect, test } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, expect, test, vi } from "vitest";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Gameboard from ".";
 
@@ -38,5 +38,42 @@ describe("Gameboard", () => {
     expect(pokemonCardElements[1]).toHaveFocus();
   });
 
-  test("allows player to select the Pokemon using the 'Enter' key", () => {});
+  test("allows player to select the Pokemon using the 'Enter' key", async () => {
+    let selectedPokemonIds = new Set();
+    const mockSetPokemonIdsFunction = vi.fn();
+    const getUpdatedSelectedPokemonIds = (
+      mockSetPokemonIdsFunction,
+      prevPokemonIds,
+    ) => {
+      expect(mockSetPokemonIdsFunction).toHaveBeenCalled();
+
+      const [updaterFunction] = mockSetPokemonIdsFunction.mock.lastCall;
+      return updaterFunction(prevPokemonIds);
+    };
+
+    const { getAllByRole } = render(
+      <Gameboard
+        pokemons={MOCK_POKEMONS}
+        setDisplayedPokemonsIds={EMPTY_FUNCTION}
+        pokemonIdsSelectedThisRound={selectedPokemonIds}
+        updateScores={EMPTY_FUNCTION}
+        setPokemonIdsSelectedThisRound={mockSetPokemonIdsFunction}
+        setIsGameOver={EMPTY_FUNCTION}
+      />,
+    );
+    const pokemonCardElements = getAllByRole("button");
+
+    const user = userEvent.setup();
+
+    await user.tab();
+    await user.tab();
+    expect(pokemonCardElements[1]).toHaveFocus(); // 2nd Pokemon (ID: 2) selected
+    await user.keyboard("{Enter}");
+
+    selectedPokemonIds = getUpdatedSelectedPokemonIds(
+      mockSetPokemonIdsFunction,
+      selectedPokemonIds,
+    );
+    expect(selectedPokemonIds.has(2)).toBe(true);
+  });
 });
