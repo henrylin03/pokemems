@@ -82,13 +82,12 @@ const App = () => {
         />
       </main>
 
+      {/* modals */}
       <LoadingScreen shouldShow={isLoading} />
-
       <GameOverModal
         shouldShow={isGameOver && !isNewHighScore}
         resetGame={resetGame}
       />
-
       <HighScoreModal
         shouldShow={isGameOver && isNewHighScore}
         highScore={highScore}
