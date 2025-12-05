@@ -37,3 +37,8 @@ body {
 h1 {
   font-family: var(--game-font);
 }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 8px solid var(--yellow);
+}
