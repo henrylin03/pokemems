@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/henrylin03/pokemems">
-    <img src="./public/android-chrome-512x512.png" alt="Logo" width="100" height="100">
+    <img src="./public/images/masterball.png" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">Pokémems</h3>
@@ -33,24 +33,17 @@ Earn points by clicking on as many unique Pokémon cards as you can. But, if you
 
 Challenge yourself to try and set a new high score!
 
-[![Screenshot](./docs/screenshot.png)](https://poke-mems.netlify.app/)
+[![Screenshot](./public/images/screenshot.png)](https://poke-mems.netlify.app/)
 
-This project is part of [The Odin Project's](https://www.theodinproject.com/) "Full Stack JavaScript" course. Built in ReactJS, this project focuses on practising:
+This project is part of [The Odin Project's](https://www.theodinproject.com/) "Full Stack JavaScript" course. Built in React (TypeScript), this project focuses on practising the implementation of:
 
-1. React's [`useEffect`](https://react.dev/reference/react/useEffect) hook for consuming RESTful APIs. All Pokémon IDs, names, and images are fetched from the RESTful [PokéAPI](https://pokeapi.co/) using a custom hook [`useAllPokemon`](./src/hooks/useAllPokemon.js).
+1. React's [`useEffect`](https://react.dev/reference/react/useEffect) hook for consuming RESTful APIs. All Pokémon IDs, names, and images are fetched from the RESTful [PokéAPI](https://pokeapi.co/) using a custom hook `useAllPokemons`.
 2. Styling React applications using [CSS modules](https://github.com/css-modules/css-modules).
-3. Test-driven development (TDD) using [Vitest](https://vitest.dev/) and [React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro/) for unit and component testing, and [Cypress](https://www.cypress.io/) for end-to-end (e2e) testing.
 
 ### Built with
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=fbc924)](https://vite.dev/)
-
-### Tested with
-
-[![Vitest](https://img.shields.io/badge/-Vitest-252529?style=for-the-badge&logo=vitest&logoColor=FCC72B)](https://vitest.dev/)
-[![Testing-Library](https://img.shields.io/badge/-RTL-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)](https://testing-library.com/docs/react-testing-library/intro/)
-[![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)](https://www.cypress.io/)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 <!-- CONTRIBUTING -->
 
@@ -66,12 +59,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Acknowledgements
 
-- [PokéAPI](https://pokeapi.co/) for providing the free Pokémon dataset through a RESTful API
-- [Muhammad Jazman](https://www.iconfinder.com/icons/1703899/ball_master_pocket_pocket_monster_icon) for the static Masterball image file when a card is being loaded
-- [draw.io](https://app.diagrams.net/) for its free wireframing tool
-- [Coolors](https://coolors.co/) for comprehensive colour palettes
-- [favicon.io](https://favicon.io) for generating the favicons
-- The present README was heavily influenced by the ["Best-README-Template"](https://github.com/othneildrew/Best-README-Template)
+- Masterball image by JorMxDos ([DeviantArt](https://www.deviantart.com/jormxdos/art/Masterball-933399093))
+- Confused Psyduck image by Root@hausec ([Pik PNG](https://www.pikpng.com/transpng/ihbhhbT/))
+- This README is heavily influenced by the ["Best-README-Template"](https://github.com/othneildrew/Best-README-Template)
 - Markdown badges by [ileriayo](https://github.com/Ileriayo/markdown-badges)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

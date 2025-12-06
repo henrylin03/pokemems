@@ -1,21 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap');
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Press Start 2P", system-ui;
-  text-wrap: pretty;
-}
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap");
 
 :root {
-  --primary-colour: #3D348B;
-  --secondary-colour: #F7B801;
-  --primary-colour-lighter: #7678ED;
+  --purple: #3d308b;
+  --dark-purple: #330066;
+  --lilac: hsl(242, 100%, 85%);
+  --yellow: #f7b801;
+  --grey: #666666;
+
+  --game-font: "Press Start 2P", system-ui;
+  --sans-serif-font: "DM Sans", Arial, Helvetica, sans-serif, system-ui;
 }
 
-button {
-  cursor: pointer;
-  outline: none;
-  border: none;
+* {
+  font-family: var(--sans-serif-font);
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: #3d308b;
+  background: linear-gradient(
+    160deg,
+    hsl(249, 49%, 40%) 0%,
+    hsl(270, 100%, 20%) 100%
+  );
+}
+
+#root {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h1 {
+  font-family: var(--game-font);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 8px solid var(--yellow);
 }

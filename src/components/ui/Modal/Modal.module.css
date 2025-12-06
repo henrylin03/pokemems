@@ -1,0 +1,19 @@
+.modal {
+  margin: auto;
+  min-height: 50%;
+  width: max(50%, 25rem);
+  border-radius: 1rem;
+  place-content: center;
+  border: none;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 499px) {
+  .modal {
+    width: 90%;
+  }
+}

@@ -1,0 +1,65 @@
+.card {
+  background-color: var(--lilac);
+}
+
+.img {
+  margin: 0 auto;
+  width: 5rem;
+  height: 5rem;
+  animation: rotate 1.75s ease-in-out 0s infinite;
+}
+
+.text {
+  text-align: center;
+  font-family: var(--game-font);
+  color: var(--purple);
+  font-size: 16px;
+}
+
+.text::after {
+  display: inline-block;
+  animation: dots 2s steps(1, end) infinite;
+  content: "";
+}
+
+/* ANIMATIONS */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80% {
+    content: "...";
+  }
+  100% {
+    content: "...";
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 499px) {
+  .text {
+    font-size: 12px;
+    text-wrap: nowrap;
+  }
+}
