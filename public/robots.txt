@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://poke-mems.netlify.app/sitemap.xml
