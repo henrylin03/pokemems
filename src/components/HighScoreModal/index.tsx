@@ -1,5 +1,5 @@
 import Modal from "../ui/Modal";
-import PlayAgainButton from "../PlayAgainButton";
+import Button from "../ui/Button";
 import img from "./ribbon-img.png";
 import styles from "./HighScoreModal.module.css";
 
@@ -25,7 +25,7 @@ const HighScoreModal = ({ shouldShow, highScore, resetGame }: Props) => (
         </p>
         <p className={styles.highScore}>{highScore}</p>
       </div>
-      <PlayAgainButton onClick={resetGame} />
+      <Button onClick={resetGame}>Play again</Button>
     </div>
   </Modal>
 );

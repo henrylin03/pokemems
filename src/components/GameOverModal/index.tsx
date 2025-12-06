@@ -1,5 +1,5 @@
 import Modal from "../ui/Modal";
-import PlayAgainButton from "../PlayAgainButton";
+import Button from "../ui/Button";
 import img from "./sad-psyduck-img.png";
 import styles from "./GameOverModal.module.css";
 
@@ -16,7 +16,7 @@ const GameOverModal = ({ shouldShow, resetGame }: Props) => (
       <p className={styles.copy}>
         You selected a Pokémon that you've already selected before
       </p>
-      <PlayAgainButton onClick={resetGame} />
+      <Button onClick={resetGame}>Play again</Button>
     </div>
   </Modal>
 );
